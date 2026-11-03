@@ -1,3 +1,0 @@
-"""
-AquaGuard IQ Modules Package
-"""

@@ -1,0 +1,1157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AquaGuard IQ v2.0 | Water Purifier Prognostics & IoT Telemetry Hub</title>
+  <meta name="description"
+    content="Enterprise-Grade Multi-Factor Filter-Life Monitoring and Prognostics System for AtomQUEST Track 2.">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+  <!-- Three.js CDN for 3D Visual Artwork -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="{{ url_for('static', filename='js/GLTFLoader.js') }}"></script>
+
+  <!-- Chart.js CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+
+  <!-- Ambient Flowing Liquid Caustics Background (Image 2 Aesthetic) -->
+  <div class="ambient-water-bg" id="ambientWaterBg">
+    <canvas id="causticsCanvas" class="caustics-canvas"></canvas>
+    <div class="ambient-fluid-highlight"></div>
+  </div>
+
+  <!-- Top Inset Floating Navigation Header (Matching Target Image 2) -->
+  <header class="app-header">
+    <div class="header-container">
+
+      <!-- Left Brand Logo -->
+      <div class="brand-wrapper" id="brandLogoHome" title="Return to 3D Hero Splash">
+        <div class="brand-icon">
+          <!-- Concentric Drop / Target SVG -->
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+            stroke-linejoin="round">
+            <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path>
+            <circle cx="12" cy="14" r="3.2" fill="currentColor"></circle>
+          </svg>
+        </div>
+        <div class="brand-text">
+          <h1>
+            AquaGuard IQ
+            <span class="brand-badge">ATOMQUEST</span>
+          </h1>
+        </div>
+      </div>
+
+      <!-- Center Pill Navigation (Creamy Sand Glass Capsule) -->
+      <div class="header-nav-pills">
+        <button class="nav-pill-btn nav-tab active" data-target="tab-dashboard" id="navPillDashboard">Dashboard
+          Overview</button>
+        <button class="nav-pill-btn nav-tab" data-target="tab-analytics" id="navPillAnalytics">Water Analytics</button>
+        <button class="nav-pill-btn nav-tab" data-target="tab-simulation" id="navPillSimulation">Simulation</button>
+        <button class="nav-pill-btn nav-tab" data-target="tab-esp32" id="navPillEsp32">ESP32 API</button>
+        <button class="nav-pill-btn nav-tab" data-target="tab-export" id="navPillExport">Export Data</button>
+      </div>
+
+      <!-- Right Actions & Live Connection Pill -->
+      <div class="header-actions">
+        <!-- Dual-line Status Capsule (Matching reference) -->
+        <div id="connectionStatusPill" class="connection-pill-capsule simulation" title="Watchdog Connection Status">
+          <span class="status-dot"></span>
+          <div class="connection-pill-text">
+            <span class="pill-title" id="connectionStatusTitle">Simulation Mode</span>
+            <span class="pill-subtitle" id="connectionStatusSubtitle">Live Connection</span>
+          </div>
+        </div>
+
+        <!-- "Go to Landing" return button (visible when in dashboard) -->
+        <button id="btnReturnToLanding" class="pill-btn-sync" style="display:none;"
+          title="Return to 3D Hero Landing View">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+            <polyline points="9 22 9 12 15 12 15 22"></polyline>
+          </svg>
+          Hero View
+        </button>
+
+        <!-- Sync Pill Button -->
+        <button id="headerRefreshBtn" class="pill-btn-sync" title="Synchronize Telemetry">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <path d="M23 4v6h-6"></path>
+            <path d="M1 20v-6h6"></path>
+            <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path>
+          </svg>
+          Sync
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- ===================================================================== -->
+  <!-- PHASE A: 3D HIGH-TECH HERO SPLASH LANDING PAGE (Creamy Sand & Liquid Glass) -->
+  <!-- ===================================================================== -->
+  <section id="hero-landing" class="landing-hero-section">
+
+    <!-- Left Hero Headline Content -->
+    <div class="hero-content-col">
+      <div class="hero-track-tag">
+        <span class="target-circle-icon">◎</span>
+        <span>TRACK 2: WATER PURIFIER • PROGNOSTICS OF FILTER FAILURE &amp; IOT TELEMETRY</span>
+      </div>
+
+      <h1 class="hero-main-title">
+        Purity Meets
+        Predictive Intelligence
+      </h1>
+
+      <p class="hero-main-subtitle">
+        Real-time IoT flow telemetry and multi-factor filter degradation forecasting powered by ESP32.
+      </p>
+
+      <div class="hero-cta-group">
+        <!-- Button 1: Liquid Cyan Glass LiquidButton for "▷ Launch Telemetry" -->
+        <button id="btn-launch-telemetry" class="liquid-btn btn-launch-telemetry" title="Launch Active Dashboard">
+          <span class="btn-play-icon">▷</span>
+          Launch Telemetry
+        </button>
+
+        <!-- Button 2: Frosted Pearlescent MetalButton for "READ THE MATHS" -->
+        <button id="btn-read-maths" class="metal-btn btn-read-maths" title="View Predictive Maintenance Equations">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="4" y="2" width="16" height="20" rx="2" ry="2"></rect>
+            <line x1="8" y1="6" x2="16" y2="6"></line>
+            <line x1="8" y1="10" x2="16" y2="10"></line>
+            <line x1="8" y1="14" x2="12" y2="14"></line>
+          </svg>
+          READ THE MATHS
+        </button>
+      </div>
+    </div>
+
+    <!-- Right Hero Visual Content (Interactive WebGL Canvas & Live Telemetry Cards) -->
+    <div class="hero-visual-col">
+      <!-- Interactive WebGL Canvas for Shimmering Water Glints & Parallax Stardust -->
+      <div id="hero-webgl-canvas" class="canvas-3d-container"></div>
+
+      <!-- Holographic 3D Overlay Status Badges & SVG Curved Leader Lines -->
+      <div class="hud-badge-container">
+        <!-- Badge 1: Top Badge (MEMBRANE STATUS: 100%) -->
+        <div class="hud-callout-badge hud-badge-membrane" id="heroBadgeMembrane" title="Primary Cartridge Integrity">
+          <span class="hud-dot hud-dot-green"></span>
+          <span>MEMBRANE STATUS: <strong id="heroMembranePct">100%</strong></span>
+        </div>
+
+        <!-- Badge 2: Mid Badge (HARDNESS DECAY: active) -->
+        <div class="hud-callout-badge hud-badge-hardness" id="heroBadgeHardness" title="TDS Hardness Mineral Decay">
+          <span class="hud-dot hud-dot-cyan"></span>
+          <span>HARDNESS DECAY: <strong id="heroHardnessState">active</strong></span>
+        </div>
+
+        <!-- Badge 3: Bottom Badge (IoT Telemetry: connected) -->
+        <div class="hud-callout-badge hud-badge-telemetry" id="heroBadgeTelemetry" title="ESP32 Watchdog Stream">
+          <span class="hud-dot hud-dot-blue"></span>
+          <span>IoT Telemetry: <strong id="heroConnState">connected</strong></span>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ===================================================================== -->
+  <!-- PHASE B: ACTIVE FUNCTIONAL DASHBOARD (Telemetry, Charts & Controls) -->
+  <!-- ===================================================================== -->
+  <section id="dashboard-view" class="dashboard-app-section main-content hidden">
+
+    <!-- Hardware Disconnection Watchdog Warning Banner -->
+    <div id="watchdogWarningBanner" class="watchdog-banner">
+      <div class="watchdog-banner-content">
+        <span>⚠️ <strong>HARDWARE DISCONNECTION WATCHDOG ACTIVE:</strong> Physical sensor payload timeout exceeded
+          (<span id="watchdogElapsedSeconds">300</span>s without telemetry ping). System safely operating in
+          <code>SENSOR_OFFLINE_FALLBACK_ACTIVE</code> mode.</span>
+        <button class="metal-btn metal-btn-titanium" style="padding: 0.35rem 0.8rem; font-size: 0.72rem;"
+          onclick="switchToDashboardTab('tab-esp32');">Inspect Connection</button>
+      </div>
+    </div>
+
+    <!-- Dashboard Top Bar Toolbar with Floating "Back to Landing" Action -->
+    <div class="dashboard-toolbar-row"
+      style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1.25rem;">
+      <div
+        style="display:flex; align-items:center; gap:0.5rem; font-size:0.82rem; color:var(--text-muted); font-weight:600;">
+        <span
+          style="display:inline-flex; width:8px; height:8px; border-radius:50%; background:var(--status-normal);"></span>
+        <span>AquaGuard IQ Telemetry Console</span>
+        <span>•</span>
+        <span style="color:var(--text-secondary);">Prognostics &amp; Predictive Maintenance</span>
+      </div>
+      <button id="btnFloatingBackToLanding" class="metal-btn"
+        style="padding: 0.45rem 1.1rem; font-size: 0.82rem; font-weight: 700; gap: 0.45rem; border-radius: var(--radius-full); box-shadow: 0 4px 15px rgba(0,0,0,0.06);"
+        title="Return to 3D High-Tech Hero Splash">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+          <path d="M19 12H5M12 19l-7-7 7-7" />
+        </svg>
+        Back to Landing
+      </button>
+    </div>
+
+    <!-- TAB 1: DASHBOARD OVERVIEW -->
+    <div id="tab-dashboard" class="tab-pane active">
+
+      <!-- Hero Multi-Factor Degradation Card -->
+      <section class="degradation-hero-card">
+        <div class="hero-left">
+          <h2>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--cyan-400)" stroke-width="2">
+              <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path>
+            </svg>
+            Multi-Factor Membrane Degradation Engine
+          </h2>
+          <div class="hero-formula">
+            Formula: Effective_Volume = Injected_Volume × K_TDS × K_FlowRate
+          </div>
+
+          <div class="hero-stats-grid">
+            <div class="hero-stat-box">
+              <div class="hero-stat-label">Raw Volume Flowed</div>
+              <div id="heroRawLitres" class="hero-stat-value cyan">0.00 L</div>
+            </div>
+            <div class="hero-stat-box">
+              <div class="hero-stat-label">Effective Membrane Wear</div>
+              <div id="heroEffectiveWear" class="hero-stat-value emerald">0.00 L</div>
+            </div>
+            <div class="hero-stat-box">
+              <div class="hero-stat-label">Hardness/Stress Penalty</div>
+              <div id="heroExcessWear" class="hero-stat-value warning">+0.0%</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-right">
+          <div style="display:flex; justify-content:space-between; align-items:center;">
+            <span
+              style="font-size:0.75rem; text-transform:uppercase; color:var(--text-muted); font-weight:700;">Prognostic
+              Status</span>
+            <span id="heroStatusBadge" class="badge-status normal">Operational</span>
+            <span id="metric-status" style="display:none;">Operational</span>
+          </div>
+          <p id="heroStatusDesc" style="font-size:0.78rem; color:var(--slate-300); line-height:1.4;">
+            Filter operating well within optimal performance envelope (>30% health).
+          </p>
+          <div class="factor-indicator">
+            <span class="factor-name">TDS Scale Factor (K_TDS):</span>
+            <span class="factor-val">1.0 + max(0, (TDS-250)/500)</span>
+          </div>
+          <div class="factor-indicator">
+            <span class="factor-name">Turbulence Penalty (>3.5 LPM):</span>
+            <span class="factor-val">1.15x Accelerant</span>
+          </div>
+          <div class="factor-indicator">
+            <span class="factor-name">Current Wear Multiplier:</span>
+            <span id="heroWearMultiplier" class="factor-val" style="color:var(--cyan-400);">1.00x</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- 5 Key Metric Cards -->
+      <section class="kpi-grid">
+        <!-- 1. Raw Litres Flowed -->
+        <div class="kpi-card">
+          <div class="kpi-header">
+            <span class="kpi-title">Raw Water Ingested</span>
+            <div class="kpi-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path>
+              </svg>
+            </div>
+          </div>
+          <div class="kpi-value-row">
+            <span id="kpiRawLitres" class="kpi-number">0.0</span>
+            <span id="metric-total-usage" style="display:none;">0.0 L</span>
+            <span class="kpi-unit">Litres</span>
+          </div>
+          <div class="kpi-subtext">Cumulative physical flow</div>
+        </div>
+
+        <!-- 2. Effective Membrane Wear -->
+        <div class="kpi-card">
+          <div class="kpi-header">
+            <span class="kpi-title">Effective Wear Volume</span>
+            <div class="kpi-icon emerald">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
+              </svg>
+            </div>
+          </div>
+          <div class="kpi-value-row">
+            <span id="kpiEffectiveWear" class="kpi-number">0.0</span>
+            <span class="kpi-unit">Litres</span>
+          </div>
+          <div class="kpi-subtext">Weighted degradation burden</div>
+        </div>
+
+        <!-- 3. Remaining Capacity -->
+        <div class="kpi-card">
+          <div class="kpi-header">
+            <span class="kpi-title">Remaining Capacity</span>
+            <div class="kpi-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <path d="M12 6v6l4 2"></path>
+              </svg>
+            </div>
+          </div>
+          <div class="kpi-value-row">
+            <span id="kpiRemainingCapacity" class="kpi-number">3,000</span>
+            <span id="metric-remaining" style="display:none;">3000 L</span>
+            <span class="kpi-unit">Litres</span>
+          </div>
+          <div class="kpi-subtext">Rated capacity buffer</div>
+        </div>
+
+        <!-- 4. Remaining Membrane Health Score -->
+        <div class="kpi-card">
+          <div class="kpi-header">
+            <span class="kpi-title">Membrane Health Score</span>
+            <div class="kpi-icon warning">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polygon
+                  points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
+                </polygon>
+              </svg>
+            </div>
+          </div>
+          <div class="kpi-value-row">
+            <span id="kpiHealthScore" class="kpi-number">100.0%</span>
+            <span id="metric-health-score" style="display:none;">100.0%</span>
+            <span id="metric-capacity-consumed" style="display:none;">0.0%</span>
+          </div>
+          <div class="kpi-progress-bar">
+            <div id="kpiHealthFill" class="kpi-progress-fill emerald" style="width: 100%;"></div>
+          </div>
+          <div class="kpi-subtext" style="justify-content:space-between; margin-top:0.4rem;">
+            <span>Consumed: <strong id="kpiCapacityConsumed" style="color:var(--text-primary);">0.0%</strong></span>
+            <span>100% Brand New</span>
+          </div>
+        </div>
+
+        <!-- 5. RUL (Remaining Useful Life in Days) -->
+        <div class="kpi-card">
+          <div class="kpi-header">
+            <span class="kpi-title">Remaining Useful Life (RUL)</span>
+            <div class="kpi-icon emerald">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                <line x1="16" y1="2" x2="16" y2="6"></line>
+                <line x1="8" y1="2" x2="8" y2="6"></line>
+                <line x1="3" y1="10" x2="21" y2="10"></line>
+              </svg>
+            </div>
+          </div>
+          <div class="kpi-value-row">
+            <span id="kpiRulDays" class="kpi-number">200 Days</span>
+          </div>
+          <div id="kpiRulBurnRate" class="kpi-subtext">Based on 7-Day Exponential Smoothing</div>
+        </div>
+      </section>
+
+      <!-- Primary Charts Layout -->
+      <section class="charts-grid-primary">
+        <!-- Live Chart 1: Depletion Curve -->
+        <div class="chart-card">
+          <div class="chart-header">
+            <div class="chart-title">
+              <h3>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--cyan-500)" stroke-width="2">
+                  <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+                </svg>
+                Depletion Curve: Raw Consumption vs. Effective Wear
+              </h3>
+              <p>Dual-trajectory monitoring against 3,000 L rated membrane ceiling</p>
+            </div>
+          </div>
+          <div class="chart-canvas-container">
+            <canvas id="depletionCurveChart"></canvas>
+          </div>
+        </div>
+
+        <!-- Live Chart 2: Membrane Health Gauge -->
+        <div class="chart-card">
+          <div class="chart-header">
+            <div class="chart-title">
+              <h3>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--cyan-500)" stroke-width="2">
+                  <circle cx="12" cy="12" r="10"></circle>
+                </svg>
+                Membrane Life Gauge
+              </h3>
+              <p>Prognostic Health vs Wear</p>
+            </div>
+          </div>
+          <div class="gauge-canvas-container">
+            <canvas id="healthGaugeChart"></canvas>
+            <div class="gauge-center-label">
+              <div id="gaugeScore" class="gauge-center-score" style="color: var(--status-normal);">100%</div>
+              <div id="gaugeRemainingSub" class="gauge-center-sub">3,000 L Left</div>
+            </div>
+          </div>
+          <div class="gauge-legend-row">
+            <span class="gauge-legend-item">
+              <span class="gauge-legend-dot dot-health" id="gaugeLegendHealthDot"></span>
+              <span>Remaining Life (<strong id="gaugeLegendHealthPct" style="color: var(--text-primary);">100%</strong>)</span>
+            </span>
+            <span class="gauge-legend-item">
+              <span class="gauge-legend-dot dot-wear"></span>
+              <span>Effective Wear (<strong id="gaugeLegendConsumedPct" style="color: var(--text-primary);">0%</strong>)</span>
+            </span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Quick Action Controls (Matrix B & E Primitives) -->
+      <section class="chart-card" style="margin-bottom: 1.75rem;">
+        <div class="chart-header">
+          <div class="chart-title">
+            <h3>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--cyan-500)" stroke-width="2">
+                <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+              </svg>
+              Interactive Telemetry & Control Panel
+            </h3>
+            <p>Immediate state updates powered by LiquidButton (Telemetry) & MetalButton (System Operations)</p>
+          </div>
+        </div>
+
+        <!-- Telemetry Simulation Action Buttons (Matrix B) -->
+        <div style="margin-bottom: 1rem;">
+          <span
+            style="font-size:0.75rem; text-transform:uppercase; font-weight:700; color:var(--slate-500); display:block; margin-bottom:0.5rem;">
+            💧 Water Flow Telemetry (LiquidButton)
+          </span>
+          <div class="quick-buttons-row">
+            <button id="btnQuickAdd1L" class="liquid-btn btn-sim-add" data-litres="1.0"
+              title="Dispense 1.0 Litre (+1L Quick Add)">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path>
+              </svg>
+              +1L Quick Add
+            </button>
+
+            <button id="btnQuickAdd10L" class="liquid-btn btn-sim-add" data-litres="10.0"
+              title="Dispense 10.0 Litres (+10L Quick Add)">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path>
+                <circle cx="12" cy="14" r="2"></circle>
+              </svg>
+              +10L Quick Add
+            </button>
+
+            <button id="btnQuickAdd50L" class="liquid-btn liquid-btn-stress btn-sim-add" data-litres="50.0"
+              title="Inject 50.0 Litres Stress Test (+50L Heavy Stress Test)">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+              </svg>
+              +50L Heavy Stress Test
+            </button>
+          </div>
+        </div>
+
+        <!-- System & Hardware Control Action Buttons (Matrix D & E) -->
+        <div>
+          <span
+            style="font-size:0.75rem; text-transform:uppercase; font-weight:700; color:var(--slate-500); display:block; margin-bottom:0.5rem;">
+            ⚙️ System Controls & Hardware (MetalButton)
+          </span>
+          <div class="quick-buttons-row">
+            <button id="btnExportCsvPrimary" class="metal-btn" title="Download aqua_guard_iq_report.csv">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                <polyline points="7 10 12 15 17 10"></polyline>
+                <line x1="12" y1="15" x2="12" y2="3"></line>
+              </svg>
+              Export Usage CSV
+            </button>
+
+            <button id="btn-test-esp32" data-id="btnTestEsp32Endpoint"
+              class="metal-btn metal-btn-titanium btn-test-esp32"
+              title="Send simulated ESP32 authenticated test payload">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+              </svg>
+              Test ESP32 Endpoint
+            </button>
+
+            <button id="btnResetSimulationData" class="metal-btn metal-btn-gold" title="Open Reset Confirmation Dialog">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"></path>
+                <path d="M3 3v5h5"></path>
+              </svg>
+              Reset Simulation Data
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Recent Telemetry Log Table -->
+      <section class="chart-card">
+        <div class="chart-header">
+          <div class="chart-title">
+            <h3>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--cyan-500)" stroke-width="2">
+                <line x1="8" y1="6" x2="21" y2="6"></line>
+                <line x1="8" y1="12" x2="21" y2="12"></line>
+                <line x1="8" y1="18" x2="21" y2="18"></line>
+                <line x1="3" y1="6" x2="3.01" y2="6"></line>
+                <line x1="3" y1="12" x2="3.01" y2="12"></line>
+                <line x1="3" y1="18" x2="3.01" y2="18"></line>
+              </svg>
+              Recent Telemetry Stream (SQLite Ingestion)
+            </h3>
+            <p>Latest authenticated sensor readings and simulated events</p>
+          </div>
+          <button id="btnViewFullAudit" class="metal-btn metal-btn-titanium">View Full Audit Log</button>
+        </div>
+        <div class="table-container">
+          <table class="telemetry-table">
+            <thead>
+              <tr>
+                <th>Record ID</th>
+                <th>Timestamp</th>
+                <th>Device</th>
+                <th>Source</th>
+                <th>Event Type</th>
+                <th>Raw Litres</th>
+                <th>Flow Rate</th>
+                <th>Raw TDS</th>
+                <th>Effective Wear</th>
+              </tr>
+            </thead>
+            <tbody id="recentLogsTableBody">
+              <!-- Populated via app.js -->
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+    </div>
+
+    <!-- TAB 2: WATER ANALYTICS -->
+    <div id="tab-analytics" class="tab-pane">
+      <section class="chart-card" style="margin-bottom: 1.5rem;">
+        <div class="chart-header">
+          <div class="chart-title">
+            <h3>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--cyan-500)" stroke-width="2">
+                <rect x="3" y="3" width="18" height="18" rx="2"></rect>
+                <line x1="3" y1="9" x2="21" y2="9"></line>
+                <line x1="9" y1="21" x2="9" y2="9"></line>
+              </svg>
+              Historical Consumption Line Chart & 7-Day Exponential Smoothed Burn Rate
+            </h3>
+            <p>Tracking day-by-day raw intake vs. effective wear alongside prognostic baseline</p>
+          </div>
+          <button id="btnRefreshAnalytics" class="metal-btn metal-btn-titanium">Refresh Trends</button>
+        </div>
+        <div class="chart-canvas-container" style="height: 350px;">
+          <canvas id="dailyForecastChart"></canvas>
+        </div>
+      </section>
+
+      <!-- RUL Forecast Calendar Table -->
+      <section class="chart-card" style="margin-bottom: 1.5rem;">
+        <div class="chart-header">
+          <div class="chart-title">
+            <h3>📅 RUL Prognostic Forecast & Degradation Horizon</h3>
+            <p>Projected membrane exhaustion milestones computed via 7-day adaptive exponential smoothing</p>
+          </div>
+        </div>
+        <div class="table-container">
+          <table class="telemetry-table">
+            <thead>
+              <tr>
+                <th>Prognostic Metric</th>
+                <th>Current Status / Value</th>
+                <th>Calculation Methodology</th>
+                <th>Action Recommendation</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Membrane Health Score</strong></td>
+                <td id="tableHealthScore" style="color:var(--status-normal); font-weight:700;">--</td>
+                <td>(Rated Capacity - Total Effective Wear) / Rated</td>
+                <td>Maintain regular sampling</td>
+              </tr>
+              <tr>
+                <td><strong>Smoothed Daily Burn Rate</strong></td>
+                <td id="tableDailyRate" style="color:var(--cyan-600); font-weight:700;">--</td>
+                <td>7-Day Rolling Exponential Smoothing (&alpha; = 0.3)</td>
+                <td>Adaptive household baseline</td>
+              </tr>
+              <tr>
+                <td><strong>Remaining Useful Life (RUL)</strong></td>
+                <td id="tableRulDays" style="color:#6366f1; font-weight:700;">--</td>
+                <td>floor(Remaining Effective Capacity / Daily Rate)</td>
+                <td id="tableRulAction">Cartridge life operational</td>
+              </tr>
+              <tr>
+                <td><strong>Projected Cartridge End-of-Life</strong></td>
+                <td id="tableProjectedDate" style="color:var(--status-warning); font-weight:700;">--</td>
+                <td>Calendar date based on current RUL days</td>
+                <td>Calendar milestone marker</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </div>
+
+    <!-- TAB 3: SIMULATION CONTROLS -->
+    <div id="tab-simulation" class="tab-pane">
+      <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+
+        <!-- Interactive Volume Injector Controls -->
+        <div class="chart-card">
+          <div class="chart-header">
+            <div class="chart-title">
+              <h3>Interactive Volume Injector</h3>
+              <p>Simulate specific household or commercial water usage</p>
+            </div>
+          </div>
+
+          <!-- Quick Dispense row inside Simulation -->
+          <div style="margin-bottom: 1.25rem;">
+            <label class="form-label" style="margin-bottom: 0.4rem;">Quick Dispense Presets (LiquidButton):</label>
+            <div class="quick-buttons-row">
+              <button class="liquid-btn btn-sim-quick" data-litres="1.0"
+                style="padding:0.5rem 0.9rem; font-size:0.8rem;">+1L Glass</button>
+              <button class="liquid-btn btn-sim-quick" data-litres="10.0"
+                style="padding:0.5rem 0.9rem; font-size:0.8rem;">+10L Bottles</button>
+              <button class="liquid-btn liquid-btn-stress btn-sim-quick" data-litres="50.0"
+                style="padding:0.5rem 0.9rem; font-size:0.8rem;">+50L Heavy Stress</button>
+            </div>
+          </div>
+
+          <!-- Custom Telemetry Form -->
+          <form id="customSimulationForm">
+            <div class="form-grid">
+              <div class="form-group">
+                <label class="form-label">Water Volume (Litres)</label>
+                <input type="number" id="simLitres" class="form-input" min="0.1" step="0.1" value="3.5" required>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Flow Rate (L/min)</label>
+                <input type="number" id="simFlowRate" class="form-input" min="0.5" max="15.0" step="0.1" value="2.2"
+                  required>
+              </div>
+            </div>
+            <div class="form-grid">
+              <div class="form-group">
+                <label class="form-label">Raw Water TDS (PPM)</label>
+                <input type="number" id="simTds" class="form-input" min="50" max="1500" step="10" value="380" required>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Usage Category</label>
+                <select id="simEventType" class="form-select">
+                  <option value="Drinking Water Dispense">Drinking Water Dispense</option>
+                  <option value="Cooking & Food Prep">Cooking & Food Prep</option>
+                  <option value="Ice Maker & Refrigerator">Ice Maker & Refrigerator</option>
+                  <option value="High-Flow Bottle Fill">High-Flow Bottle Fill</option>
+                  <option value="System Rinse & Maintenance">System Rinse & Maintenance</option>
+                </select>
+              </div>
+            </div>
+            <button type="submit" id="btnSubmitCustomSim" class="liquid-btn" style="margin-top:0.75rem; width:100%;">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+              </svg>
+              Inject Telemetry Event (LiquidButton)
+            </button>
+          </form>
+        </div>
+
+        <!-- Configuration & Settings Forms (Matrix C & E) -->
+        <div class="chart-card">
+          <div class="chart-header">
+            <div class="chart-title">
+              <h3>Cartridge & Household Calibration</h3>
+              <p>Configure filter capacity limits and household daily burn rate</p>
+            </div>
+          </div>
+
+          <!-- Form 1: Rated Capacity -->
+          <div class="form-group" style="margin-bottom:1.25rem;">
+            <label class="form-label">Rated Membrane Capacity (Litres)</label>
+            <div style="display:flex; gap:0.5rem;">
+              <input type="number" id="settingRatedCapacity" class="form-input" min="500" max="25000" step="100"
+                value="3000" required style="flex:1;">
+              <button id="btnUpdateRatedCapacity" class="metal-btn" style="white-space:nowrap;">
+                Update Rated Capacity
+              </button>
+            </div>
+          </div>
+
+          <!-- Form 2: Daily Consumption Target -->
+          <div class="form-group" style="margin-bottom:1.25rem;">
+            <label class="form-label">Household Baseline Daily Average (Litres/Day)</label>
+            <div style="display:flex; gap:0.5rem;">
+              <input type="number" id="settingDailyAvg" class="form-input" min="1" max="200" step="1" value="15"
+                required style="flex:1;">
+              <button id="btnUpdateDailyTarget" class="metal-btn metal-btn-titanium" style="white-space:nowrap;">
+                Set Daily Target
+              </button>
+            </div>
+          </div>
+
+          <hr style="border:none; border-top:1px solid var(--slate-200); margin: 1.25rem 0;">
+
+          <!-- Destructive Reset Controls (Matrix E) -->
+          <div>
+            <h4 style="font-size:0.85rem; font-weight:700; color:var(--status-danger); margin-bottom:0.35rem;">
+              Data Flush & Reset (MetalButton)
+            </h4>
+            <p style="font-size:0.75rem; color:var(--slate-500); margin-bottom:0.75rem;">
+              Clear current telemetry records or restore reference dataset with confirmation dialog.
+            </p>
+            <button id="btnOpenResetModalSim" class="metal-btn metal-btn-gold">
+              Reset Simulation Data...
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- TAB 4: ESP32 API SETUP -->
+    <div id="tab-esp32" class="tab-pane">
+      <div style="display:grid; grid-template-columns: 1.1fr 1fr; gap: 1.5rem;">
+
+        <!-- Live ESP32 REST API Playground & Tester (Matrix D) -->
+        <div class="chart-card">
+          <div class="chart-header">
+            <div class="chart-title">
+              <h3>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--cyan-500)" stroke-width="2">
+                  <path d="M5 12.55a11 11 0 0 1 14.08 0"></path>
+                  <path d="M1.42 9a16 16 0 0 1 21.16 0"></path>
+                  <path d="M8.53 16.11a6 6 0 0 1 6.95 0"></path>
+                  <line x1="12" y1="20" x2="12.01" y2="20"></line>
+                </svg>
+                ESP32 Security & Sensor API Setup
+              </h3>
+              <p>REST endpoint credentials, API key tester, and payload documentation</p>
+            </div>
+            <span id="apiResponseStatusBadge" class="badge-status normal">Ready</span>
+          </div>
+
+          <!-- Dedicated Matrix D Trigger -->
+          <div
+            style="background:rgba(15,23,42,0.6); border:1px solid rgba(255,255,255,0.08); padding:1rem; border-radius:var(--radius-md); margin-bottom:1.25rem;">
+            <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:0.5rem;">
+              <div>
+                <strong style="font-size:0.85rem; color:#f8fafc;">Simulated Hardware Handshake</strong>
+                <p style="font-size:0.75rem; color:var(--slate-400); margin-top:0.2rem;">
+                  Sends authenticated <code>X-Sensor-API-Key</code> with <code>ESP32_TEST</code> payload.
+                </p>
+              </div>
+              <button id="btnRunMatrixEsp32Test" class="metal-btn"
+                style="background:var(--cyan-500); color:#0f172a; border-color:var(--cyan-400);">
+                Test ESP32 Endpoint
+              </button>
+            </div>
+          </div>
+
+          <!-- Editable Test Controls -->
+          <div class="form-group" style="margin-bottom:0.85rem;">
+            <label class="form-label">HTTP Header <code>X-Sensor-API-Key</code></label>
+            <input type="password" id="testApiKeyInput" class="form-input" style="font-family:var(--font-mono);"
+              value="AG-IQ-SECRET-KEY-2026" placeholder="Configured Secret (SENSOR_API_KEY)">
+          </div>
+
+          <div class="form-grid">
+            <div class="form-group">
+              <label class="form-label">Device ID</label>
+              <input type="text" id="testDeviceIdInput" class="form-input" value="ESP32_TEST">
+            </div>
+            <div class="form-group">
+              <label class="form-label">Litres Flowed</label>
+              <input type="number" id="testLitresInput" class="form-input" min="0" step="0.1" value="2.5">
+            </div>
+          </div>
+
+          <div class="form-grid">
+            <div class="form-group">
+              <label class="form-label">Flow Rate (L/min)</label>
+              <input type="number" id="testFlowRateInput" class="form-input" min="0" max="25" step="0.1" value="3.2">
+            </div>
+            <div class="form-group">
+              <label class="form-label">TDS (PPM)</label>
+              <input type="number" id="testTdsInput" class="form-input" min="50" max="1500" value="385">
+            </div>
+          </div>
+
+          <button id="btnSendEsp32Test" class="metal-btn"
+            style="margin-top:0.5rem; width:100%; justify-content:center;">
+            🚀 Transmit Telemetry Payload (POST /api/sensor-data)
+          </button>
+
+          <div style="margin-top:1.25rem;">
+            <label class="form-label" style="display:flex; justify-content:space-between;">
+              <span>Live Controller Response Console:</span>
+            </label>
+            <pre id="apiResponseTerminal"
+              class="code-terminal">Ready. Click 'Test ESP32 Endpoint' to verify hardware ingestion.</pre>
+          </div>
+        </div>
+
+        <!-- ESP32 Hardware Integration Guide -->
+        <div class="chart-card">
+          <div class="chart-header">
+            <div class="chart-title">
+              <h3>Hardware Wiring & Arduino Firmware</h3>
+              <p>ESP32 NodeMCU + YF-S201 Hall-Effect Flow Sensor</p>
+            </div>
+            <button id="btnCopyArduinoSketch" class="metal-btn metal-btn-titanium" style="font-size:0.72rem;">Copy
+              Firmware</button>
+          </div>
+          <div style="font-size:0.8rem; line-height:1.6; color:var(--slate-300);">
+            <div
+              style="background:rgba(15,23,42,0.6); padding:0.75rem; border-radius:var(--radius-sm); margin-bottom:1rem; font-family:var(--font-mono); font-size:0.75rem; border:1px solid rgba(255,255,255,0.06);">
+              <strong>YF-S201 Sensor Wiring:</strong><br>
+              • Red (VCC) &nbsp;➜ ESP32 5V (VIN)<br>
+              • Black (GND) ➜ ESP32 GND<br>
+              • Yellow (Signal) ➜ ESP32 GPIO 18 (Interrupt Pin)
+            </div>
+
+            <pre id="arduinoCodeBlock" class="code-terminal" style="max-height: 250px;">
+#include &lt;WiFi.h&gt;
+#include &lt;HTTPClient.h&gt;
+
+const char* serverUrl = "http://192.168.1.100:5000/api/sensor-data";
+const char* apiKey    = "AG-IQ-••••••••-2026"; // Configured via SENSOR_API_KEY environment variable
+
+void sendTelemetry(float litres, float flowRateLpm, float tdsPpm) {
+  if (WiFi.status() == WL_CONNECTED) {
+    HTTPClient http;
+    http.begin(serverUrl);
+    http.addHeader("Content-Type", "application/json");
+    http.addHeader("X-Sensor-API-Key", apiKey);
+
+    String payload = "{\"device_id\":\"ESP32_TEST\",\"litres_flowed\":" + 
+      String(litres, 2) + ",\"flow_rate_lpm\":" + 
+      String(flowRateLpm, 2) + ",\"tds_ppm\":" + 
+      String(tdsPpm, 1) + "}";
+
+    int httpCode = http.POST(payload);
+    Serial.printf("[HTTP] POST Code: %d\n", httpCode);
+    http.end();
+  }
+}
+            </pre>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- TAB 5: EXPORT DATA -->
+    <div id="tab-export" class="tab-pane">
+      <section class="chart-card">
+        <div class="chart-header">
+          <div class="chart-title">
+            <h3>Download Triggers & CSV History Preview</h3>
+            <p>Direct download of <code>aqua_guard_iq_report.csv</code> and real-time tabular inspection</p>
+          </div>
+          <div style="display:flex; gap:0.5rem; flex-wrap:wrap;">
+            <button id="btnTriggerExportCsv" class="metal-btn"
+              title="Download aqua_guard_iq_report.csv directly from /api/export-csv">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                <polyline points="7 10 12 15 17 10"></polyline>
+                <line x1="12" y1="15" x2="12" y2="3"></line>
+              </svg>
+              Export Usage CSV (MetalButton)
+            </button>
+
+            <button id="btnRefreshExportLogs" class="metal-btn metal-btn-titanium">
+              Refresh Preview
+            </button>
+          </div>
+        </div>
+
+        <div
+          style="display:flex; justify-content:space-between; align-items:center; margin-top:0.75rem; margin-bottom:0.5rem;">
+          <span style="font-size:0.78rem; color:var(--slate-400); font-weight:600;">
+            Showing live SQLite records (<span id="exportRecordCount">0</span> total entries):
+          </span>
+          <span style="font-size:0.74rem; color:var(--slate-500);">Filename:
+            <code>aqua_guard_iq_report.csv</code></span>
+        </div>
+
+        <div class="table-container" style="max-height: 550px; overflow-y:auto;">
+          <table class="telemetry-table">
+            <thead>
+              <tr>
+                <th>Record ID</th>
+                <th>Timestamp</th>
+                <th>Device ID</th>
+                <th>Source</th>
+                <th>Event Type</th>
+                <th>Raw Volume</th>
+                <th>Flow LPM</th>
+                <th>TDS</th>
+                <th>K_TDS</th>
+                <th>K_Flow</th>
+                <th>Effective Wear</th>
+              </tr>
+            </thead>
+            <tbody id="fullLogsTableBody">
+              <!-- Populated via app.js -->
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </div>
+
+  </section>
+
+  <!-- ===================================================================== -->
+  <!-- MODALS -->
+  <!-- ===================================================================== -->
+
+  <!-- "Read the Maths" Glassmorphism Modal -->
+  <div id="maths-modal" class="modal-backdrop hidden">
+    <div class="modal-content" style="max-width: 760px;">
+      <div class="modal-header">
+        <h3>🔬 Predictive Maintenance &amp; Degradation Mathematics</h3>
+        <button id="btn-close-modal" class="metal-btn"
+          style="padding: 0.35rem 0.85rem; font-size: 0.82rem; font-weight: 700; border-radius: var(--radius-full);">✕
+          Close</button>
+      </div>
+      <div class="modal-body" style="font-size: 0.86rem; line-height: 1.7; color: var(--slate-700);">
+
+        <!-- Formula 1: Base Degradation -->
+        <div
+          style="background: rgba(255, 255, 255, 0.75); border: 1px solid rgba(0, 210, 255, 0.35); padding: 1.1rem 1.25rem; border-radius: var(--radius-md); margin-bottom: 1.15rem; box-shadow: 0 4px 15px rgba(0, 210, 255, 0.08);">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 0.4rem;">
+            <strong style="color: var(--slate-900); font-size: 0.95rem;">1. Base Degradation Dynamics</strong>
+            <span class="badge-status normal" style="font-size:0.68rem;">CORE ENGINE</span>
+          </div>
+          <div class="hero-formula"
+            style="font-size: 1.02rem; margin: 0.5rem 0; background:#020617; color:#38bdf8; padding: 0.85rem 1rem; border-radius: var(--radius-sm); font-family: 'JetBrains Mono', monospace; font-weight:700;">
+            Effective Wear = Raw Volume × K_TDS × K_Flow
+          </div>
+          <p style="margin: 0; font-size: 0.82rem; color: var(--slate-600);">
+            Replaces raw volumetric depletion with physics-informed wear weighting. Every liter flowing through the RO
+            cartridge is adjusted by mineral hardness and hydraulic velocity.
+          </p>
+        </div>
+
+        <!-- Formula 2: Hardness Factor K_TDS -->
+        <div
+          style="background: rgba(255, 255, 255, 0.75); border: 1px solid var(--slate-200); padding: 1.1rem 1.25rem; border-radius: var(--radius-md); margin-bottom: 1.15rem;">
+          <strong style="color: var(--slate-900); font-size: 0.95rem;">2. Hardness Factor ($K_{\text{TDS}}$)</strong>
+          <p style="margin: 0.35rem 0 0.5rem 0; font-size: 0.83rem;">
+            Calibrated against purified municipal baseline water (<strong>250 PPM = 1.00</strong>). Mineral levels
+            exceeding 250 PPM accelerate microscopic pore scaling:
+          </p>
+          <div
+            style="background:#f8fafc; border:1px solid #e2e8f0; padding:0.65rem 0.9rem; border-radius:6px; font-family:'JetBrains Mono', monospace; font-weight:600; color:#0f172a; margin-bottom:0.5rem;">
+            K_TDS = 1.0 + max(0, (TDS - 250) / 500)
+          </div>
+          <p style="margin: 0; font-size: 0.78rem; color: var(--slate-500);">
+            <em>Example: Hard groundwater at 375 PPM yields $K_{\text{TDS}} = 1.25$ (a 25% acceleration in effective
+              membrane pore exhaustion).</em>
+          </p>
+        </div>
+
+        <!-- Formula 3: Turbulence Stress K_Flow -->
+        <div
+          style="background: rgba(255, 255, 255, 0.75); border: 1px solid var(--slate-200); padding: 1.1rem 1.25rem; border-radius: var(--radius-md); margin-bottom: 1.15rem;">
+          <strong style="color: var(--slate-900); font-size: 0.95rem;">3. Turbulence Stress Factor
+            ($K_{\text{Flow}}$)</strong>
+          <p style="margin: 0.35rem 0 0.5rem 0; font-size: 0.83rem;">
+            High-velocity water dispensing generates hydrodynamic shear stress across delicate semi-permeable membranes.
+            Flow rates $> 3.5\text{ L/min}$ induce a <strong>1.15× multiplier</strong>:
+          </p>
+          <div
+            style="background:#f8fafc; border:1px solid #e2e8f0; padding:0.65rem 0.9rem; border-radius:6px; font-family:'JetBrains Mono', monospace; font-weight:600; color:#0f172a; margin-bottom:0.5rem;">
+            K_Flow = 1.15 if flow_rate > 3.5 L/min else 1.00
+          </div>
+          <p style="margin: 0; font-size: 0.78rem; color: var(--slate-500);">
+            <em>Accounts for trans-membrane pressure surges and physical membrane flex fatigue during aggressive tap
+              dispensing.</em>
+          </p>
+        </div>
+
+        <!-- Formula 4: RUL Forecasting -->
+        <div
+          style="background: rgba(255, 255, 255, 0.75); border: 1px solid var(--slate-200); padding: 1.1rem 1.25rem; border-radius: var(--radius-md); margin-bottom: 1.15rem;">
+          <strong style="color: var(--slate-900); font-size: 0.95rem;">4. RUL Forecasting (Remaining Useful Life in
+            Days)</strong>
+          <p style="margin: 0.35rem 0 0.5rem 0; font-size: 0.83rem;">
+            Projected maintenance timelines are computed by dividing remaining capacity by the 7-day rolling
+            exponentially smoothed burn rate:
+          </p>
+          <div
+            style="background:#f8fafc; border:1px solid #e2e8f0; padding:0.65rem 0.9rem; border-radius:6px; font-family:'JetBrains Mono', monospace; font-weight:600; color:#0f172a; margin-bottom:0.5rem;">
+            RUL (Days) = floor(Remaining Capacity / 7-Day Rolling Daily Average)
+          </div>
+          <p style="margin: 0.35rem 0 0.25rem 0; font-size: 0.78rem; color: var(--slate-600);">
+            Adaptive Exponential Smoothing: <code
+              style="font-family:'JetBrains Mono'; background:#e2e8f0; padding:2px 5px; border-radius:3px;">S_t = 0.30 × Usage_t + 0.70 × S_{t-1}</code>
+          </p>
+          <p style="margin: 0; font-size: 0.78rem; color: var(--slate-500);">
+            <em>Eliminates false alert spikes caused by isolated single-day high usage events (e.g. weekend home
+              cleaning).</em>
+          </p>
+        </div>
+
+        <!-- Prognostic Classification Table -->
+        <h4 style="color: var(--slate-900); margin: 1rem 0 0.4rem 0;">Tri-Tier Prognostic Classification Thresholds</h4>
+        <div class="table-container">
+          <table class="telemetry-table">
+            <thead>
+              <tr>
+                <th>Status Tier</th>
+                <th>Health Score</th>
+                <th>RUL Days</th>
+                <th>Maintenance Protocol</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><span class="badge-status normal">NORMAL</span></td>
+                <td>&gt; 30%</td>
+                <td>&gt; 21 Days</td>
+                <td>Optimal hydrodynamic flux and membrane integrity.</td>
+              </tr>
+              <tr>
+                <td><span class="badge-status warning">ATTENTION_REQUIRED</span></td>
+                <td>15% - 30%</td>
+                <td>8 - 21 Days</td>
+                <td>Warning buffer: order replacement cartridge.</td>
+              </tr>
+              <tr>
+                <td><span class="badge-status danger">CRITICAL_REPLACE</span></td>
+                <td>&lt; 15%</td>
+                <td>&le; 7 Days</td>
+                <td>Pore exhaustion breached: risk of microbial breakthrough.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+      </div>
+      <div class="modal-footer">
+        <button id="btnCloseMathsModalFooter" class="metal-btn"
+          style="padding: 0.55rem 1.4rem; font-size: 0.85rem; font-weight: 700;">
+          ✕ Close
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Diagnostic Modal -->
+  <div id="diagnosticModal" class="modal-backdrop hidden">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>IoT Hardware Diagnostics & Anomaly Inspector</h3>
+        <button id="btnCloseDiagnosticModal" class="btn-close-modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <p style="font-size:0.85rem; color:var(--slate-600); margin-bottom:1rem;">
+          Verify that your ESP32 device keys, watchdog heartbeat, and stream anomaly filters are operating properly.
+        </p>
+        <div style="background:var(--slate-100); padding:1rem; border-radius:var(--radius-md); font-size:0.8rem;">
+          <div style="display:flex; justify-content:space-between; margin-bottom:0.5rem;">
+            <strong>Secret API Key:</strong>
+            <code>AG-IQ-••••••••-2026 (Configured via SENSOR_API_KEY)</code>
+          </div>
+          <div style="display:flex; justify-content:space-between; margin-bottom:0.5rem;">
+            <strong>Watchdog Timeout:</strong>
+            <span>300 Seconds</span>
+          </div>
+          <div style="display:flex; justify-content:space-between; margin-bottom:0.5rem;">
+            <strong>Flow Rate Outlier Ceiling:</strong>
+            <span>15.0 L/min</span>
+          </div>
+          <div style="display:flex; justify-content:space-between;">
+            <strong>Database Storage Engine:</strong>
+            <span>SQLite 3 (WAL Mode)</span>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button id="btnCloseDiagModalFooter" class="metal-btn metal-btn-titanium">Close</button>
+        <button id="btnOpenFullApiTesterFromModal" class="metal-btn">
+          Open Full API Tester
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Reset Confirmation Modal Dialog -->
+  <div id="resetModal" class="modal-backdrop hidden">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 style="color:var(--status-danger);">Confirm Reset Filter History</h3>
+        <button id="btnCancelReset" class="btn-close-modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <p style="font-size:0.9rem; color:var(--slate-800); font-weight:600; margin-bottom:0.5rem;">
+          Are you sure you want to reset all filter history?
+        </p>
+        <p style="font-size:0.82rem; color:var(--slate-600); margin-bottom:1.25rem;">
+          This action clears all cumulative wear from the database, resets all gauge animations to 0%, and restores the
+          baseline rated capacity.
+        </p>
+        <div style="display:flex; flex-direction:column; gap:0.75rem;">
+          <div
+            style="background:var(--slate-50); border:1px solid var(--slate-200); padding:0.85rem; border-radius:var(--radius-md);">
+            <strong>Option 1: Wipe Clean to 0 Litres</strong>
+            <p style="font-size:0.78rem; color:var(--slate-500); margin-top:0.25rem;">
+              Clears all telemetry records and resets cumulative wear to 0 L (simulates a brand-new pristine membrane
+              cartridge).
+            </p>
+          </div>
+          <div
+            style="background:var(--cyan-50); border:1px solid var(--cyan-border); padding:0.85rem; border-radius:var(--radius-md);">
+            <strong style="color:var(--cyan-700);">Option 2: Restore Benchmark Dataset</strong>
+            <p style="font-size:0.78rem; color:var(--slate-600); margin-top:0.25rem;">
+              Restores the 288-event AtomQUEST reference dataset, running each event through the multi-factor
+              degradation engine.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button id="btnCancelResetFooter" class="metal-btn metal-btn-titanium">Cancel</button>
+        <button id="btnConfirmResetEmpty" class="metal-btn metal-btn-destructive">Clear to 0 L</button>
+        <button id="btnConfirmResetSample" class="metal-btn metal-btn-gold">Reseed Benchmark</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="{{ url_for('static', filename='js/ambient-caustics.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/three-hero.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/charts.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+
+</html>

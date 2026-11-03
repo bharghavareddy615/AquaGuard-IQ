@@ -1,148 +1,171 @@
-# AquaGuard IQ
-
-> **A Data-Driven Filter-Life Monitoring and Predictive Maintenance System for Water Purifiers**  
-> **Competition:** atomQUEST 2026 | **Track 2:** Water Purifier | **Area:** Prognostics of filter failure using data analytics  
-> **Team:** ProjectX | **Institution:** Amrita Vishwa Vidyapeetham | **Department:** Artificial Intelligence and Data Science (AI&DS)  
+# AquaGuard IQ v2.0 💧
+**Enterprise-Grade Production Prototype | AtomQUEST Track 2: Water Purifier**
+*Prognostics of Filter Failure, Multi-Factor Degradation & IoT Telemetry Hub*
 
 ---
 
-## ⚠️ Important Constraint & Simulation Disclaimer
+## 🌟 Executive Summary
 
-**This repository contains a 100% software-only prototype.**  
-- **No physical hardware** (ESP32, Arduino, Hall-effect flow sensors, TDS probes) is attached or required.
-- All water flow measurements, cumulative usage figures, and sensor trends are **synthetically generated simulation data** designed to demonstrate telemetry handling and prognostic pipelines.
-- **Safety Disclaimer:** AquaGuard IQ does **not** certify drinking-water safety or guarantee detection of all physical membrane ruptures or microbiological contamination.
-- The proposed engineering targets (±10% volume estimation error, ≥95% flow-event detection) are **future physical test-bench targets**, not achieved experimental results.
+**AquaGuard IQ v2.0** upgrades basic water volume counters into an enterprise-grade, physics-informed prognostic maintenance system. Instead of relying on naive linear volume subtraction, AquaGuard IQ computes an **Effective Degradation Volume** based on raw water hardness (TDS), fluid turbulence stress factors, and 7-day rolling exponential smoothing usage patterns.
+
+It features hardware-enforced authentication, real-time outlier rejection, an automated 300-second hardware disconnection watchdog, SQLite WAL persistence, and an interactive cyan-navy telemetry dashboard.
 
 ---
 
-## 🌟 Key Features
+## 📐 Directory Structure
 
-1. **Home / Overview Dashboard:**
-   - Real-time simulated flow rate ($L/\text{min}$), cumulative volume ($L$), usage percentage ($\%$), and remaining capacity.
-   - Dual-criteria maintenance status badges: `Normal`, `Moderate Usage`, `Service Soon`, `Capacity Reached`.
-   - Next service forecast and capacity burn-down gauge.
-
-2. **Interactive Simulation Engine:**
-   - Button-driven, deterministic flow events (No freezing background loops).
-   - Flow-rate profiles: Low ($0.8-1.2\text{ L/min}$), Normal ($1.8-2.5\text{ L/min}$), High ($3.0-4.5\text{ L/min}$), and Custom.
-   - Reproducible synthetic dataset generator with adjustable duration and random seed.
-   - Batch simulation shortcuts ($+100\text{L}, +500\text{L}, +1500\text{L}$) and full filter reset.
-
-3. **Filter-Life Estimator:**
-   - Transparent mathematical model calculating cumulative volume, remaining rated capacity, and remaining usable days.
-   - User-configurable rated capacity ($500 - 20,000\text{ L}$) and service intervals ($30 - 730\text{ days}$).
-   - Configurable moderate ($70\%$) and critical service ($85\%$) advisory thresholds.
-
-4. **Interactive Plotly Visualizations:**
-   - Cumulative consumption vs rated capacity limit.
-   - Daily water consumption profile with mean consumption line.
-   - Capacity burn-down trajectory.
-   - Event-level flow rate distribution with nominal RO output zones.
-   - Simulated auxiliary TDS drift demonstrating future sensor fusion.
-
-5. **Data Analytics & Demonstration Machine Learning:**
-   - Transparent rule-based baseline comparison against machine-learning prognostics.
-   - Random Forest demonstration trained on synthetic feature spaces.
-   - Feature importance rankings and live interactive inference tester.
-   - Explicit disclaimer highlighting that synthetic accuracy does not establish real-world failure prediction.
-
-6. **Data Management:**
-   - Download current simulation telemetry as CSV.
-   - Download bundled reference 60-day sample dataset (`data/sample_water_usage.csv`).
-   - Upload and schema-validate external CSV datasets.
-
----
-
-## 📁 Project Structure
-
-```text
-AtomQuest/
-├── app.py                      # Main Streamlit web application
-├── requirements.txt            # Python dependencies
-├── README.md                   # Setup and methodology documentation
-├── data/
-│   └── sample_water_usage.csv  # Bundled 60-day reproducible synthetic telemetry
-└── modules/
-    ├── __init__.py             # Module package marker
-    ├── simulation.py           # Flow generation and event simulation engine
-    ├── estimator.py            # Mathematical estimation & prognostic modeling
-    ├── charts.py               # Interactive Plotly engineering visualizations
-    └── data_manager.py         # CSV parsing, schema validation, and persistence
+```
+aqua_guard_iq/
+│── app.py                   # Main Flask application & route controllers
+│── config.py                # Environment parameters & threshold constants
+│── requirements.txt         # Dependencies (flask, requests)
+│── README.md                # Technical documentation & API Specs
+│── database/
+│   └── schema.sql           # SQLite DB creation script
+│── modules/
+│   ├── __init__.py
+│   ├── db.py                # SQLite persistence manager (Telemetry & Logs)
+│   ├── estimator.py         # Advanced Multi-Factor Prognostic Engine & RUL
+│   └── sensor_api.py        # ESP32 authentication, validation & outlier filtering
+│── static/
+│   ├── css/
+│   │   └── style.css        # Professional cyan-navy telemetry dashboard UI
+│   └── js/
+│       ├── app.js           # Real-time state manager & API fetcher
+│       └── charts.js        # Chart.js multi-axis depletion trend analytics
+└── templates/
+    └── index.html           # Full telemetry UI with live diagnostic modal
 ```
 
 ---
 
-## 🚀 Setup & Execution Instructions (Windows PowerShell)
+## 🔬 Multi-Factor Degradation Formulation (`modules/estimator.py`)
 
-Follow these exact steps in Windows PowerShell to set up and run AquaGuard IQ:
+### 1. The Core Degradation Formula
+$$\text{Effective\_Wear} = \text{Raw\_Volume} \times K_{\text{TDS}} \times K_{\text{Flow}}$$
 
-### Step 1: Verify Python Installation
-Ensure Python 3.10 or newer is installed on your Windows system:
+### 2. Mineral Hardness Penalty ($K_{\text{TDS}}$)
+Baseline pure water is set to $250\text{ PPM} \implies K_{\text{TDS}} = 1.0$. Mineral accumulation accelerates pore clogging on semi-permeable RO membranes:
+$$K_{\text{TDS}} = 1.0 + \max\left(0, \frac{\text{TDS} - 250}{500}\right)$$
+- At $375\text{ PPM}$ (hard domestic tap water): $K_{\text{TDS}} = 1.25$ ($25\%$ wear acceleration).
+- At $500\text{ PPM}$ (severe scale accumulation): $K_{\text{TDS}} = 1.50$ ($50\%$ wear acceleration).
+
+### 3. Turbulence Stress Factor ($K_{\text{Flow}}$)
+High dispense velocity generates trans-membrane pressure spikes:
+$$K_{\text{Flow}} = \begin{cases} 1.15 & \text{if } \text{Flow Rate} > 3.5\text{ L/min} \\ 1.00 & \text{otherwise} \end{cases}$$
+
+### 4. Remaining Membrane Health Score & RUL
+- **Health Score (%)**:
+  $$\text{Health Score} = \max\left(0, \frac{\text{Rated Capacity} - \text{Total Effective Wear}}{\text{Rated Capacity}} \times 100\right)$$
+- **7-Day Rolling Exponential Smoothing Daily Rate**:
+  $$S_t = \alpha \cdot Y_t + (1 - \alpha) \cdot S_{t-1} \quad (\alpha = 0.3)$$
+- **Remaining Useful Life (RUL in Days)**:
+  $$\text{RUL} = \left\lfloor \frac{\text{Remaining Capacity}}{S_t} \right\rfloor$$
+
+### 5. Tri-Tier Prognostic Classification
+| Status | Health Score Threshold | RUL Threshold | System Action |
+| :--- | :--- | :--- | :--- |
+| **`NORMAL`** | $> 30\%$ | $> 21$ Days | Normal operation; optimal flow dynamics |
+| **`ATTENTION_REQUIRED`** | $15\% - 30\%$ | $8 - 21$ Days | Pre-order replacement cartridge buffer |
+| **`CRITICAL_REPLACE`** | $< 15\%$ | $\le 7$ Days | Immediate replacement; risk of microbial breakthrough |
+
+---
+
+## 🔒 IoT Security & Hardware Watchdog (`modules/sensor_api.py`)
+
+### 1. API Key Authentication
+All physical ESP32 payloads must supply the HTTP header:
+```http
+X-Sensor-API-Key: AG-IQ-SECRET-KEY-2026
+```
+Invalid or missing headers return `HTTP 401 Unauthorized`.
+
+### 2. Anomaly & Outlier Filtering
+- Flow rate ceiling: `flow_rate_lpm > 15.0 L/min` triggers `HTTP 422 Unprocessable Entity` (sensor glitch rejection).
+- Negative flow guard: Any negative volume or flow returns `HTTP 400 Bad Request`.
+
+### 3. Hardware Disconnection Watchdog (300 Seconds)
+If an active ESP32 sensor does not send a telemetry heartbeat for over **300 seconds**, the system automatically switches to:
+```
+SENSOR_OFFLINE_FALLBACK_ACTIVE
+```
+Visual indicators flash across the UI, alerting operators while the system continues logging simulated events safely.
+
+---
+
+## 🗄️ Database Architecture (`modules/db.py`)
+
+Persistent storage uses SQLite with Write-Ahead Logging (`WAL` mode) at `aqua_guard_iq/database/aquaguard.db`:
+- **`telemetry`**: Full chronological ingestion log with `record_id`, `timestamp`, `device_id`, `source` (`SENSOR` vs `SIMULATED`), `raw_litres`, `flow_rate`, `tds_ppm`, `k_tds`, `k_flow`, and `effective_litres`.
+- **`system_state`**: Singleton state maintaining cumulative raw & effective litres, rated capacity, daily average, sensor status, and last heartbeat.
+
+---
+
+## 📡 REST API Specifications
+
+### 1. Ingest Hardware Telemetry
+- **Endpoint**: `POST /api/sensor-data`
+- **Headers**:
+  ```
+  Content-Type: application/json
+  X-Sensor-API-Key: AG-IQ-SECRET-KEY-2026
+  ```
+- **Payload**:
+  ```json
+  {
+    "device_id": "esp32_01",
+    "litres_flowed": 1.25,
+    "flow_rate_lpm": 2.4,
+    "tds_ppm": 380.0
+  }
+  ```
+- **Response** (`200 OK`):
+  ```json
+  {
+    "status": "accepted",
+    "message": "Telemetry processed and degradation logged",
+    "device_id": "esp32_01",
+    "recorded": true,
+    "metrics": {
+      "health_score_pct": 98.4,
+      "rul_days": 182,
+      "prognostic_status": "NORMAL"
+    }
+  }
+  ```
+
+### 2. Fetch Full Telemetry & Prognostics
+- **Endpoint**: `GET /api/metrics`
+- **Response**: Complete snapshot containing system state, watchdog counters, multi-factor metrics, daily trend series, and recent logs.
+
+### 3. Simulate Dispense Event
+- **Endpoint**: `POST /api/add-usage`
+- **Payload**:
+  ```json
+  {
+    "litres": 5.0,
+    "flow_rate_lpm": 2.2,
+    "tds_ppm": 350.0,
+    "event_type": "Cooking & Food Prep"
+  }
+  ```
+
+### 4. Download Formatted CSV Audit Trail
+- **Endpoint**: `GET /api/export-csv`
+- Returns an attachment `aquaguard_iq_v2_telemetry.csv` containing raw volumes, stress factors, effective wear, and health statuses.
+
+---
+
+## 🚀 Running on Windows
+
+From the project root using PowerShell:
+
 ```powershell
-py --version
-```
-*(Expected output: `Python 3.10.x` or higher, e.g., `Python 3.14.0`)*
+# 1. Activate environment and install dependencies
+.\.venv\Scripts\pip.exe install -r aqua_guard_iq\requirements.txt
 
-### Step 2: Create a Virtual Environment
-Navigate to the project root directory and create a localized virtual environment:
-```powershell
-cd C:\Users\bharg\Desktop\Projects\AtomQuest
-py -m venv .venv
+# 2. Launch AquaGuard IQ v2.0
+.\.venv\Scripts\python.exe aqua_guard_iq\app.py
 ```
 
-### Step 3: Activate the Virtual Environment
-Activate the environment in Windows PowerShell:
-```powershell
-.\.venv\Scripts\Activate.ps1
-```
-
-> **Troubleshooting Execution Policy in PowerShell:**  
-> If PowerShell displays a script execution policy error (`PSSecurityException` or `running scripts is disabled`), run:
-> ```powershell
-> Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
-> .\.venv\Scripts\Activate.ps1
-> ```
-
-### Step 4: Install Dependencies
-Upgrade pip and install the required libraries:
-```powershell
-py -m pip install --upgrade pip
-py -m pip install -r requirements.txt
-```
-
-### Step 5: Launch AquaGuard IQ
-Launch the Streamlit dashboard in your web browser:
-```powershell
-py -m streamlit run app.py
-```
-Streamlit will output local and network URLs (typically `http://localhost:8501`). Your default browser will open automatically.
-
----
-
-## 🛠️ Common Troubleshooting
-
-| Issue | Cause | Solution |
-| :--- | :--- | :--- |
-| **Port 8501 already in use** | Another Streamlit app or background service is occupying the default port | Launch on a different port: `py -m streamlit run app.py --server.port 8502` |
-| **ModuleNotFoundError** | Dependencies installed in global Python rather than active `.venv` | Ensure `(.venv)` is shown in your terminal prompt before running `py -m streamlit run app.py` |
-| **Browser doesn't open automatically** | Headless or default browser configuration | Open any browser manually and navigate to `http://localhost:8501` |
-| **CSV upload error** | Uploaded file lacks required telemetry columns | Download the bundled sample from the Data Management tab to inspect the required column format |
-
----
-
-## 🔬 Hardware Sourcing & Future Plan (Round 2)
-
-| Component | Target Specification | Indicative Cost (₹) |
-| :--- | :--- | :--- |
-| **ESP32 NodeMCU Board** | 30-pin dual-core Wi-Fi/BLE microcontroller | ₹350 – ₹500 |
-| **Inline Water-Flow Sensor** | YF-S201 (1/2" Hall-effect turbine, $1-30\text{ L/min}$) | ₹200 – ₹350 |
-| **Wiring, Tubing & Connectors** | Food-grade 1/4" to 1/2" quick-connect push fittings | ₹200 – ₹350 |
-| **Calibration Rig** | Graduated cylinder, low-voltage 5V USB source | ₹200 – ₹400 |
-| **Total Estimated Hardware Budget** | **₹1,050 – ₹2,000** |
-
----
-
-## 📄 License & Attribution
-Developed by **ProjectX** (Amrita Vishwa Vidyapeetham) for the **atomQUEST 2026 Innovation Competition (Track 2: Water Purifier)**.  
-Software is provided for academic demonstration, peer review, and evaluation purposes.
+Open your browser at: **`http://127.0.0.1:5000`**

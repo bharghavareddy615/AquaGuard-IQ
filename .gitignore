@@ -4,7 +4,7 @@ __pycache__/
 *$py.class
 *.so
 
-# Environments
+# Virtual Environments
 .venv/
 env/
 venv/
@@ -12,19 +12,49 @@ ENV/
 env.bak/
 venv.bak/
 
-# Streamlit
-.streamlit/
+# SQLite Database Files (auto-seeded on startup from schema.sql)
+*.db
+*.sqlite
+*.sqlite3
 
-# OS-specific
-.DS_Store
-Thumbs.db
-desktop.ini
+# External Installer Binaries & Third-Party Toolkits (Never commit to git)
+setup.exe
+sldim/
+node_modules/
 
-# IDE & Editor artifacts
+# Agent Tools, Workspaces & IDE Metadata
+.agent/
+.agents/
+.gemini/
+.gsd/
+scratch/
 .vscode/
 .idea/
 *.swp
 *.swo
 
-# Project binary docs (optional to track or keep, but exclude temporary locks)
-~$*.docx
+# Temporary Screenshots & Scratch Visuals
+screenshot*.png
+scratch_*
+frame*.png
+current_server_state.png
+package.json
+package-lock.json
+
+# Legacy / Prototype artifacts (Root Only)
+/ProjectX_Track2.docx
+/ProjectX_Track2.pdf
+/data/
+/modules/
+/adapters/
+/components/
+/scripts/
+/GSD-STYLE.md
+/PROJECT_RULES.md
+/model_capabilities.yaml
+/VERSION
+
+# OS Metadata
+.DS_Store
+Thumbs.db
+desktop.ini

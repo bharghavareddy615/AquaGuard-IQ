@@ -1,0 +1,2638 @@
+{
+  "settings": {
+    "rated_capacity_litres": 3000.0,
+    "daily_avg_litres": 15.0,
+    "device_id": "esp32_atomquest_01",
+    "last_hardware_ping": "2026-10-29T22:15:35.639973"
+  },
+  "records": [
+    {
+      "id": "rec_0001",
+      "timestamp": "2026-08-20 06:44:08",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 1.03,
+      "flow_rate_lpm": 0.94,
+      "source": "simulation",
+      "event_type": "Morning Drinking Water"
+    },
+    {
+      "id": "rec_0002",
+      "timestamp": "2026-08-20 07:12:31",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 4.13,
+      "flow_rate_lpm": 2.31,
+      "source": "simulation",
+      "event_type": "Breakfast & Cooking Refill"
+    },
+    {
+      "id": "rec_0003",
+      "timestamp": "2026-08-20 08:36:19",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 1.55,
+      "flow_rate_lpm": 2.16,
+      "source": "simulation",
+      "event_type": "Afternoon Water Refill"
+    },
+    {
+      "id": "rec_0004",
+      "timestamp": "2026-08-20 09:10:52",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 5.11,
+      "flow_rate_lpm": 2.21,
+      "source": "simulation",
+      "event_type": "Dinner Cooking & Prep"
+    },
+    {
+      "id": "rec_0005",
+      "timestamp": "2026-08-20 20:00:52",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 4.18,
+      "flow_rate_lpm": 4.1,
+      "source": "simulation",
+      "event_type": "Night Family Bottles Refill"
+    },
+    {
+      "id": "rec_0006",
+      "timestamp": "2026-08-21 06:51:23",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 1.49,
+      "flow_rate_lpm": 1.08,
+      "source": "simulation",
+      "event_type": "Morning Drinking Water"
+    },
+    {
+      "id": "rec_0007",
+      "timestamp": "2026-08-21 11:02:18",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 4.1,
+      "flow_rate_lpm": 2.17,
+      "source": "simulation",
+      "event_type": "Breakfast & Cooking Refill"
+    },
+    {
+      "id": "rec_0008",
+      "timestamp": "2026-08-21 13:10:49",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 1.96,
+      "flow_rate_lpm": 2.15,
+      "source": "simulation",
+      "event_type": "Afternoon Water Refill"
+    },
+    {
+      "id": "rec_0009",
+      "timestamp": "2026-08-21 20:58:05",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 6.46,
+      "flow_rate_lpm": 2.15,
+      "source": "simulation",
+      "event_type": "Dinner Cooking & Prep"
+    },
+    {
+      "id": "rec_0010",
+      "timestamp": "2026-08-21 22:51:06",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 4.94,
+      "flow_rate_lpm": 3.69,
+      "source": "simulation",
+      "event_type": "Night Family Bottles Refill"
+    },
+    {
+      "id": "rec_0011",
+      "timestamp": "2026-08-22 06:43:30",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 1.02,
+      "flow_rate_lpm": 0.96,
+      "source": "simulation",
+      "event_type": "Morning Drinking Water"
+    },
+    {
+      "id": "rec_0012",
+      "timestamp": "2026-08-22 12:11:05",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 5.67,
+      "flow_rate_lpm": 2.12,
+      "source": "simulation",
+      "event_type": "Breakfast & Cooking Refill"
+    },
+    {
+      "id": "rec_0013",
+      "timestamp": "2026-08-22 14:49:23",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 1.94,
+      "flow_rate_lpm": 2.29,
+      "source": "simulation",
+      "event_type": "Afternoon Water Refill"
+    },
+    {
+      "id": "rec_0014",
+      "timestamp": "2026-08-22 17:49:24",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 6.66,
+      "flow_rate_lpm": 2.1,
+      "source": "simulation",
+      "event_type": "Dinner Cooking & Prep"
+    },
+    {
+      "id": "rec_0015",
+      "timestamp": "2026-08-22 18:53:11",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 4.14,
+      "flow_rate_lpm": 3.51,
+      "source": "simulation",
+      "event_type": "Night Family Bottles Refill"
+    },
+    {
+      "id": "rec_0016",
+      "timestamp": "2026-08-23 06:16:06",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 1.44,
+      "flow_rate_lpm": 1.18,
+      "source": "simulation",
+      "event_type": "Morning Drinking Water"
+    },
+    {
+      "id": "rec_0017",
+      "timestamp": "2026-08-23 08:43:50",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 5.48,
+      "flow_rate_lpm": 2.38,
+      "source": "simulation",
+      "event_type": "Breakfast & Cooking Refill"
+    },
+    {
+      "id": "rec_0018",
+      "timestamp": "2026-08-23 16:22:21",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 1.94,
+      "flow_rate_lpm": 2.39,
+      "source": "simulation",
+      "event_type": "Afternoon Water Refill"
+    },
+    {
+      "id": "rec_0019",
+      "timestamp": "2026-08-23 18:25:02",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 4.44,
+      "flow_rate_lpm": 2.05,
+      "source": "simulation",
+      "event_type": "Dinner Cooking & Prep"
+    },
+    {
+      "id": "rec_0020",
+      "timestamp": "2026-08-23 19:15:57",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 3.18,
+      "flow_rate_lpm": 3.54,
+      "source": "simulation",
+      "event_type": "Night Family Bottles Refill"
+    },
+    {
+      "id": "rec_0021",
+      "timestamp": "2026-08-24 08:11:08",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 1.26,
+      "flow_rate_lpm": 1.12,
+      "source": "simulation",
+      "event_type": "Morning Drinking Water"
+    },
+    {
+      "id": "rec_0022",
+      "timestamp": "2026-08-24 14:50:47",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 6.66,
+      "flow_rate_lpm": 2.22,
+      "source": "simulation",
+      "event_type": "Breakfast & Cooking Refill"
+    },
+    {
+      "id": "rec_0023",
+      "timestamp": "2026-08-24 17:50:44",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 2.82,
+      "flow_rate_lpm": 1.99,
+      "source": "simulation",
+      "event_type": "Afternoon Water Refill"
+    },
+    {
+      "id": "rec_0024",
+      "timestamp": "2026-08-24 22:03:55",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 7.3,
+      "flow_rate_lpm": 1.98,
+      "source": "simulation",
+      "event_type": "Dinner Cooking & Prep"
+    },
+    {
+      "id": "rec_0025",
+      "timestamp": "2026-08-25 06:55:20",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 1.52,
+      "flow_rate_lpm": 0.84,
+      "source": "simulation",
+      "event_type": "Morning Drinking Water"
+    },
+    {
+      "id": "rec_0026",
+      "timestamp": "2026-08-25 08:34:54",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 4.87,
+      "flow_rate_lpm": 2.03,
+      "source": "simulation",
+      "event_type": "Breakfast & Cooking Refill"
+    },
+    {
+      "id": "rec_0027",
+      "timestamp": "2026-08-25 15:20:18",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 2.13,
+      "flow_rate_lpm": 2.11,
+      "source": "simulation",
+      "event_type": "Afternoon Water Refill"
+    },
+    {
+      "id": "rec_0028",
+      "timestamp": "2026-08-25 17:47:48",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 7.24,
+      "flow_rate_lpm": 2.06,
+      "source": "simulation",
+      "event_type": "Dinner Cooking & Prep"
+    },
+    {
+      "id": "rec_0029",
+      "timestamp": "2026-08-25 19:57:21",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 4.73,
+      "flow_rate_lpm": 4.16,
+      "source": "simulation",
+      "event_type": "Night Family Bottles Refill"
+    },
+    {
+      "id": "rec_0030",
+      "timestamp": "2026-08-25 22:47:06",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 1.53,
+      "flow_rate_lpm": 1.01,
+      "source": "simulation",
+      "event_type": "Morning Drinking Water"
+    },
+    {
+      "id": "rec_0031",
+      "timestamp": "2026-08-26 09:39:07",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 0.66,
+      "flow_rate_lpm": 0.98,
+      "source": "simulation",
+      "event_type": "Morning Drinking Water"
+    },
+    {
+      "id": "rec_0032",
+      "timestamp": "2026-08-26 14:16:23",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 3.83,
+      "flow_rate_lpm": 1.98,
+      "source": "simulation",
+      "event_type": "Breakfast & Cooking Refill"
+    },
+    {
+      "id": "rec_0033",
+      "timestamp": "2026-08-26 15:50:31",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 1.94,
+      "flow_rate_lpm": 2.36,
+      "source": "simulation",
+      "event_type": "Afternoon Water Refill"
+    },
+    {
+      "id": "rec_0034",
+      "timestamp": "2026-08-26 17:24:12",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 3.5,
+      "flow_rate_lpm": 2.23,
+      "source": "simulation",
+      "event_type": "Dinner Cooking & Prep"
+    },
+    {
+      "id": "rec_0035",
+      "timestamp": "2026-08-26 21:58:49",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 1.92,
+      "flow_rate_lpm": 4.06,
+      "source": "simulation",
+      "event_type": "Night Family Bottles Refill"
+    },
+    {
+      "id": "rec_0036",
+      "timestamp": "2026-08-27 10:48:01",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 1.42,
+      "flow_rate_lpm": 1.08,
+      "source": "simulation",
+      "event_type": "Morning Drinking Water"
+    },
+    {
+      "id": "rec_0037",
+      "timestamp": "2026-08-27 11:27:26",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 4.1,
+      "flow_rate_lpm": 2.46,
+      "source": "simulation",
+      "event_type": "Breakfast & Cooking Refill"
+    },
+    {
+      "id": "rec_0038",
+      "timestamp": "2026-08-27 16:20:17",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 2.4,
+      "flow_rate_lpm": 2.27,
+      "source": "simulation",
+      "event_type": "Afternoon Water Refill"
+    },
+    {
+      "id": "rec_0039",
+      "timestamp": "2026-08-27 18:10:18",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 5.23,
+      "flow_rate_lpm": 2.35,
+      "source": "simulation",
+      "event_type": "Dinner Cooking & Prep"
+    },
+    {
+      "id": "rec_0040",
+      "timestamp": "2026-08-27 19:09:05",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 4.87,
+      "flow_rate_lpm": 3.21,
+      "source": "simulation",
+      "event_type": "Night Family Bottles Refill"
+    },
+    {
+      "id": "rec_0041",
+      "timestamp": "2026-08-27 21:37:46",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 1.8,
+      "flow_rate_lpm": 1.02,
+      "source": "simulation",
+      "event_type": "Morning Drinking Water"
+    },
+    {
+      "id": "rec_0042",
+      "timestamp": "2026-08-28 07:57:09",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 1.19,
+      "flow_rate_lpm": 0.85,
+      "source": "simulation",
+      "event_type": "Morning Drinking Water"
+    },
+    {
+      "id": "rec_0043",
+      "timestamp": "2026-08-28 11:15:42",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 6.19,
+      "flow_rate_lpm": 1.95,
+      "source": "simulation",
+      "event_type": "Breakfast & Cooking Refill"
+    },
+    {
+      "id": "rec_0044",
+      "timestamp": "2026-08-28 18:24:08",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 1.98,
+      "flow_rate_lpm": 2.17,
+      "source": "simulation",
+      "event_type": "Afternoon Water Refill"
+    },
+    {
+      "id": "rec_0045",
+      "timestamp": "2026-08-28 19:43:48",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 6.8,
+      "flow_rate_lpm": 2.06,
+      "source": "simulation",
+      "event_type": "Dinner Cooking & Prep"
+    },
+    {
+      "id": "rec_0046",
+      "timestamp": "2026-08-28 22:18:02",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 2.59,
+      "flow_rate_lpm": 4.31,
+      "source": "simulation",
+      "event_type": "Night Family Bottles Refill"
+    },
+    {
+      "id": "rec_0047",
+      "timestamp": "2026-08-29 07:23:01",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 1.29,
+      "flow_rate_lpm": 0.99,
+      "source": "simulation",
+      "event_type": "Morning Drinking Water"
+    },
+    {
+      "id": "rec_0048",
+      "timestamp": "2026-08-29 08:33:28",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 3.61,
+      "flow_rate_lpm": 2.24,
+      "source": "simulation",
+      "event_type": "Breakfast & Cooking Refill"
+    },
+    {
+      "id": "rec_0049",
+      "timestamp": "2026-08-29 09:31:27",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 2.55,
+      "flow_rate_lpm": 2.26,
+      "source": "simulation",
+      "event_type": "Afternoon Water Refill"
+    },
+    {
+      "id": "rec_0050",
+      "timestamp": "2026-08-29 15:48:23",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 4.32,
+      "flow_rate_lpm": 2.48,
+      "source": "simulation",
+      "event_type": "Dinner Cooking & Prep"
+    },
+    {
+      "id": "rec_0051",
+      "timestamp": "2026-08-29 18:26:32",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 3.46,
+      "flow_rate_lpm": 3.15,
+      "source": "simulation",
+      "event_type": "Night Family Bottles Refill"
+    },
+    {
+      "id": "rec_0052",
+      "timestamp": "2026-08-29 21:56:40",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 1.35,
+      "flow_rate_lpm": 1.07,
+      "source": "simulation",
+      "event_type": "Morning Drinking Water"
+    },
+    {
+      "id": "rec_0053",
+      "timestamp": "2026-08-30 06:44:37",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 1.47,
+      "flow_rate_lpm": 0.84,
+      "source": "simulation",
+      "event_type": "Morning Drinking Water"
+    },
+    {
+      "id": "rec_0054",
+      "timestamp": "2026-08-30 11:02:07",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 3.61,
+      "flow_rate_lpm": 2.4,
+      "source": "simulation",
+      "event_type": "Breakfast & Cooking Refill"
+    },
+    {
+      "id": "rec_0055",
+      "timestamp": "2026-08-30 18:02:09",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 2.86,
+      "flow_rate_lpm": 2.48,
+      "source": "simulation",
+      "event_type": "Afternoon Water Refill"
+    },
+    {
+      "id": "rec_0056",
+      "timestamp": "2026-08-30 20:47:27",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 4.19,
+      "flow_rate_lpm": 2.44,
+      "source": "simulation",
+      "event_type": "Dinner Cooking & Prep"
+    },
+    {
+      "id": "rec_0057",
+      "timestamp": "2026-08-31 17:08:14",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 1.18,
+      "flow_rate_lpm": 0.94,
+      "source": "simulation",
+      "event_type": "Morning Drinking Water"
+    },
+    {
+      "id": "rec_0058",
+      "timestamp": "2026-08-31 18:26:41",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 3.4,
+      "flow_rate_lpm": 2.2,
+      "source": "simulation",
+      "event_type": "Breakfast & Cooking Refill"
+    },
+    {
+      "id": "rec_0059",
+      "timestamp": "2026-08-31 19:42:22",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 2.06,
+      "flow_rate_lpm": 2.4,
+      "source": "simulation",
+      "event_type": "Afternoon Water Refill"
+    },
+    {
+      "id": "rec_0060",
+      "timestamp": "2026-08-31 20:06:39",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 3.47,
+      "flow_rate_lpm": 2.08,
+      "source": "simulation",
+      "event_type": "Dinner Cooking & Prep"
+    },
+    {
+      "id": "rec_0061",
+      "timestamp": "2026-09-01 06:22:51",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 1.02,
+      "flow_rate_lpm": 0.84,
+      "source": "simulation",
+      "event_type": "Morning Drinking Water"
+    },
+    {
+      "id": "rec_0062",
+      "timestamp": "2026-09-01 10:45:16",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 4.01,
+      "flow_rate_lpm": 2.07,
+      "source": "simulation",
+      "event_type": "Breakfast & Cooking Refill"
+    },
+    {
+      "id": "rec_0063",
+      "timestamp": "2026-09-01 15:06:40",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 2.59,
+      "flow_rate_lpm": 2.11,
+      "source": "simulation",
+      "event_type": "Afternoon Water Refill"
+    },
+    {
+      "id": "rec_0064",
+      "timestamp": "2026-09-01 22:31:58",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 6.35,
+      "flow_rate_lpm": 2.39,
+      "source": "simulation",
+      "event_type": "Dinner Cooking & Prep"
+    },
+    {
+      "id": "rec_0065",
+      "timestamp": "2026-09-02 14:15:42",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 0.9,
+      "flow_rate_lpm": 0.86,
+      "source": "simulation",
+      "event_type": "Morning Drinking Water"
+    },
+    {
+      "id": "rec_0066",
+      "timestamp": "2026-09-02 15:45:53",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 4.88,
+      "flow_rate_lpm": 2.18,
+      "source": "simulation",
+      "event_type": "Breakfast & Cooking Refill"
+    },
+    {
+      "id": "rec_0067",
+      "timestamp": "2026-09-02 16:02:27",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 2.27,
+      "flow_rate_lpm": 1.85,
+      "source": "simulation",
+      "event_type": "Afternoon Water Refill"
+    },
+    {
+      "id": "rec_0068",
+      "timestamp": "2026-09-02 22:04:23",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 4.99,
+      "flow_rate_lpm": 2.1,
+      "source": "simulation",
+      "event_type": "Dinner Cooking & Prep"
+    },
+    {
+      "id": "rec_0069",
+      "timestamp": "2026-09-03 07:48:53",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 1.68,
+      "flow_rate_lpm": 1.15,
+      "source": "simulation",
+      "event_type": "Morning Drinking Water"
+    },
+    {
+      "id": "rec_0070",
+      "timestamp": "2026-09-03 11:36:38",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 6.06,
+      "flow_rate_lpm": 2.02,
+      "source": "simulation",
+      "event_type": "Breakfast & Cooking Refill"
+    },
+    {
+      "id": "rec_0071",
+      "timestamp": "2026-09-03 17:54:13",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 2.3,
+      "flow_rate_lpm": 2.0,
+      "source": "simulation",
+      "event_type": "Afternoon Water Refill"
+    },
+    {
+      "id": "rec_0072",
+      "timestamp": "2026-09-03 20:52:19",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 6.03,
+      "flow_rate_lpm": 2.07,
+      "source": "simulation",
+      "event_type": "Dinner Cooking & Prep"
+    },
+    {
+      "id": "rec_0073",
+      "timestamp": "2026-09-04 06:10:17",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 1.2,
+      "flow_rate_lpm": 1.18,
+      "source": "simulation",
+      "event_type": "Morning Drinking Water"
+    },
+    {
+      "id": "rec_0074",
+      "timestamp": "2026-09-04 10:49:29",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 4.97,
+      "flow_rate_lpm": 2.34,
+      "source": "simulation",
+      "event_type": "Breakfast & Cooking Refill"
+    },
+    {
+      "id": "rec_0075",
+      "timestamp": "2026-09-04 19:13:08",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 1.48,
+      "flow_rate_lpm": 2.12,
+      "source": "simulation",
+      "event_type": "Afternoon Water Refill"
+    },
+    {
+      "id": "rec_0076",
+      "timestamp": "2026-09-04 22:20:02",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 5.11,
+      "flow_rate_lpm": 1.82,
+      "source": "simulation",
+      "event_type": "Dinner Cooking & Prep"
+    },
+    {
+      "id": "rec_0077",
+      "timestamp": "2026-09-05 13:14:21",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 1.7,
+      "flow_rate_lpm": 0.88,
+      "source": "simulation",
+      "event_type": "Morning Drinking Water"
+    },
+    {
+      "id": "rec_0078",
+      "timestamp": "2026-09-05 15:54:56",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 3.91,
+      "flow_rate_lpm": 1.87,
+      "source": "simulation",
+      "event_type": "Breakfast & Cooking Refill"
+    },
+    {
+      "id": "rec_0079",
+      "timestamp": "2026-09-05 17:05:44",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 1.89,
+      "flow_rate_lpm": 2.34,
+      "source": "simulation",
+      "event_type": "Afternoon Water Refill"
+    },
+    {
+      "id": "rec_0080",
+      "timestamp": "2026-09-05 19:36:12",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 3.9,
+      "flow_rate_lpm": 2.4,
+      "source": "simulation",
+      "event_type": "Dinner Cooking & Prep"
+    },
+    {
+      "id": "rec_0081",
+      "timestamp": "2026-09-05 21:14:56",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 3.1,
+      "flow_rate_lpm": 4.0,
+      "source": "simulation",
+      "event_type": "Night Family Bottles Refill"
+    },
+    {
+      "id": "rec_0082",
+      "timestamp": "2026-09-06 10:51:56",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 1.11,
+      "flow_rate_lpm": 0.96,
+      "source": "simulation",
+      "event_type": "Morning Drinking Water"
+    },
+    {
+      "id": "rec_0083",
+      "timestamp": "2026-09-06 11:58:52",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 4.58,
+      "flow_rate_lpm": 2.23,
+      "source": "simulation",
+      "event_type": "Breakfast & Cooking Refill"
+    },
+    {
+      "id": "rec_0084",
+      "timestamp": "2026-09-06 15:30:04",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 1.65,
+      "flow_rate_lpm": 2.34,
+      "source": "simulation",
+      "event_type": "Afternoon Water Refill"
+    },
+    {
+      "id": "rec_0085",
+      "timestamp": "2026-09-06 20:03:51",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 6.03,
+      "flow_rate_lpm": 1.98,
+      "source": "simulation",
+      "event_type": "Dinner Cooking & Prep"
+    },
+    {
+      "id": "rec_0086",
+      "timestamp": "2026-09-06 22:20:24",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 2.26,
+      "flow_rate_lpm": 4.34,
+      "source": "simulation",
+      "event_type": "Night Family Bottles Refill"
+    },
+    {
+      "id": "rec_0087",
+      "timestamp": "2026-09-07 08:30:40",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 1.01,
+      "flow_rate_lpm": 1.15,
+      "source": "simulation",
+      "event_type": "Morning Drinking Water"
+    },
+    {
+      "id": "rec_0088",
+      "timestamp": "2026-09-07 10:36:51",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 4.06,
+      "flow_rate_lpm": 2.3,
+      "source": "simulation",
+      "event_type": "Breakfast & Cooking Refill"
+    },
+    {
+      "id": "rec_0089",
+      "timestamp": "2026-09-07 15:58:33",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 2.38,
+      "flow_rate_lpm": 2.26,
+      "source": "simulation",
+      "event_type": "Afternoon Water Refill"
+    },
+    {
+      "id": "rec_0090",
+      "timestamp": "2026-09-07 18:22:29",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 5.36,
+      "flow_rate_lpm": 2.0,
+      "source": "simulation",
+      "event_type": "Dinner Cooking & Prep"
+    },
+    {
+      "id": "rec_0091",
+      "timestamp": "2026-09-08 06:42:10",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 1.17,
+      "flow_rate_lpm": 0.82,
+      "source": "simulation",
+      "event_type": "Morning Drinking Water"
+    },
+    {
+      "id": "rec_0092",
+      "timestamp": "2026-09-08 11:52:24",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 3.69,
+      "flow_rate_lpm": 2.14,
+      "source": "simulation",
+      "event_type": "Breakfast & Cooking Refill"
+    },
+    {
+      "id": "rec_0093",
+      "timestamp": "2026-09-08 13:17:07",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 1.63,
+      "flow_rate_lpm": 2.27,
+      "source": "simulation",
+      "event_type": "Afternoon Water Refill"
+    },
+    {
+      "id": "rec_0094",
+      "timestamp": "2026-09-08 14:58:48",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 3.18,
+      "flow_rate_lpm": 2.19,
+      "source": "simulation",
+      "event_type": "Dinner Cooking & Prep"
+    },
+    {
+      "id": "rec_0095",
+      "timestamp": "2026-09-08 21:53:46",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 3.1,
+      "flow_rate_lpm": 4.04,
+      "source": "simulation",
+      "event_type": "Night Family Bottles Refill"
+    },
+    {
+      "id": "rec_0096",
+      "timestamp": "2026-09-08 22:06:10",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 1.18,
+      "flow_rate_lpm": 1.14,
+      "source": "simulation",
+      "event_type": "Morning Drinking Water"
+    },
+    {
+      "id": "rec_0097",
+      "timestamp": "2026-09-09 06:21:04",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 1.5,
+      "flow_rate_lpm": 0.94,
+      "source": "simulation",
+      "event_type": "Morning Drinking Water"
+    },
+    {
+      "id": "rec_0098",
+      "timestamp": "2026-09-09 10:28:25",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 5.99,
+      "flow_rate_lpm": 2.33,
+      "source": "simulation",
+      "event_type": "Breakfast & Cooking Refill"
+    },
+    {
+      "id": "rec_0099",
+      "timestamp": "2026-09-09 13:47:50",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 2.42,
+      "flow_rate_lpm": 2.26,
+      "source": "simulation",
+      "event_type": "Afternoon Water Refill"
+    },
+    {
+      "id": "rec_0100",
+      "timestamp": "2026-09-09 14:14:14",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 3.69,
+      "flow_rate_lpm": 2.13,
+      "source": "simulation",
+      "event_type": "Dinner Cooking & Prep"
+    },
+    {
+      "id": "rec_0101",
+      "timestamp": "2026-09-09 15:45:15",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 2.96,
+      "flow_rate_lpm": 4.48,
+      "source": "simulation",
+      "event_type": "Night Family Bottles Refill"
+    },
+    {
+      "id": "rec_0102",
+      "timestamp": "2026-09-09 18:17:51",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 1.12,
+      "flow_rate_lpm": 0.97,
+      "source": "simulation",
+      "event_type": "Morning Drinking Water"
+    },
+    {
+      "id": "rec_0103",
+      "timestamp": "2026-09-10 09:13:26",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 0.95,
+      "flow_rate_lpm": 0.96,
+      "source": "simulation",
+      "event_type": "Morning Drinking Water"
+    },
+    {
+      "id": "rec_0104",
+      "timestamp": "2026-09-10 10:44:13",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 3.77,
+      "flow_rate_lpm": 2.22,
+      "source": "simulation",
+      "event_type": "Breakfast & Cooking Refill"
+    },
+    {
+      "id": "rec_0105",
+      "timestamp": "2026-09-10 11:42:18",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 1.72,
+      "flow_rate_lpm": 1.92,
+      "source": "simulation",
+      "event_type": "Afternoon Water Refill"
+    },
+    {
+      "id": "rec_0106",
+      "timestamp": "2026-09-10 12:13:56",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 4.64,
+      "flow_rate_lpm": 1.98,
+      "source": "simulation",
+      "event_type": "Dinner Cooking & Prep"
+    },
+    {
+      "id": "rec_0107",
+      "timestamp": "2026-09-11 09:27:18",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 1.45,
+      "flow_rate_lpm": 1.05,
+      "source": "simulation",
+      "event_type": "Morning Drinking Water"
+    },
+    {
+      "id": "rec_0108",
+      "timestamp": "2026-09-11 10:06:00",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 3.93,
+      "flow_rate_lpm": 1.94,
+      "source": "simulation",
+      "event_type": "Breakfast & Cooking Refill"
+    },
+    {
+      "id": "rec_0109",
+      "timestamp": "2026-09-11 13:24:47",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 2.01,
+      "flow_rate_lpm": 2.08,
+      "source": "simulation",
+      "event_type": "Afternoon Water Refill"
+    },
+    {
+      "id": "rec_0110",
+      "timestamp": "2026-09-11 14:37:13",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 4.54,
+      "flow_rate_lpm": 2.16,
+      "source": "simulation",
+      "event_type": "Dinner Cooking & Prep"
+    },
+    {
+      "id": "rec_0111",
+      "timestamp": "2026-09-12 07:17:28",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 1.0,
+      "flow_rate_lpm": 0.95,
+      "source": "simulation",
+      "event_type": "Morning Drinking Water"
+    },
+    {
+      "id": "rec_0112",
+      "timestamp": "2026-09-12 09:13:00",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 5.11,
+      "flow_rate_lpm": 2.47,
+      "source": "simulation",
+      "event_type": "Breakfast & Cooking Refill"
+    },
+    {
+      "id": "rec_0113",
+      "timestamp": "2026-09-12 11:54:09",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 1.56,
+      "flow_rate_lpm": 1.9,
+      "source": "simulation",
+      "event_type": "Afternoon Water Refill"
+    },
+    {
+      "id": "rec_0114",
+      "timestamp": "2026-09-12 14:37:52",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 3.38,
+      "flow_rate_lpm": 1.9,
+      "source": "simulation",
+      "event_type": "Dinner Cooking & Prep"
+    },
+    {
+      "id": "rec_0115",
+      "timestamp": "2026-09-12 21:17:25",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 2.51,
+      "flow_rate_lpm": 4.18,
+      "source": "simulation",
+      "event_type": "Night Family Bottles Refill"
+    },
+    {
+      "id": "rec_0116",
+      "timestamp": "2026-09-13 06:29:16",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 0.92,
+      "flow_rate_lpm": 0.86,
+      "source": "simulation",
+      "event_type": "Morning Drinking Water"
+    },
+    {
+      "id": "rec_0117",
+      "timestamp": "2026-09-13 09:46:13",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 4.65,
+      "flow_rate_lpm": 1.92,
+      "source": "simulation",
+      "event_type": "Breakfast & Cooking Refill"
+    },
+    {
+      "id": "rec_0118",
+      "timestamp": "2026-09-13 10:12:57",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 1.46,
+      "flow_rate_lpm": 1.85,
+      "source": "simulation",
+      "event_type": "Afternoon Water Refill"
+    },
+    {
+      "id": "rec_0119",
+      "timestamp": "2026-09-13 11:03:18",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 5.54,
+      "flow_rate_lpm": 2.26,
+      "source": "simulation",
+      "event_type": "Dinner Cooking & Prep"
+    },
+    {
+      "id": "rec_0120",
+      "timestamp": "2026-09-13 17:12:51",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 2.72,
+      "flow_rate_lpm": 3.03,
+      "source": "simulation",
+      "event_type": "Night Family Bottles Refill"
+    },
+    {
+      "id": "rec_0121",
+      "timestamp": "2026-09-13 21:10:00",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 0.91,
+      "flow_rate_lpm": 0.9,
+      "source": "simulation",
+      "event_type": "Morning Drinking Water"
+    },
+    {
+      "id": "rec_0122",
+      "timestamp": "2026-09-14 07:01:42",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 1.05,
+      "flow_rate_lpm": 0.97,
+      "source": "simulation",
+      "event_type": "Morning Drinking Water"
+    },
+    {
+      "id": "rec_0123",
+      "timestamp": "2026-09-14 09:57:09",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 4.12,
+      "flow_rate_lpm": 2.35,
+      "source": "simulation",
+      "event_type": "Breakfast & Cooking Refill"
+    },
+    {
+      "id": "rec_0124",
+      "timestamp": "2026-09-14 10:01:32",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 1.37,
+      "flow_rate_lpm": 2.41,
+      "source": "simulation",
+      "event_type": "Afternoon Water Refill"
+    },
+    {
+      "id": "rec_0125",
+      "timestamp": "2026-09-14 14:40:10",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 4.76,
+      "flow_rate_lpm": 2.07,
+      "source": "simulation",
+      "event_type": "Dinner Cooking & Prep"
+    },
+    {
+      "id": "rec_0126",
+      "timestamp": "2026-09-14 16:22:38",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 3.56,
+      "flow_rate_lpm": 4.43,
+      "source": "simulation",
+      "event_type": "Night Family Bottles Refill"
+    },
+    {
+      "id": "rec_0127",
+      "timestamp": "2026-09-14 17:49:16",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 1.37,
+      "flow_rate_lpm": 1.18,
+      "source": "simulation",
+      "event_type": "Morning Drinking Water"
+    },
+    {
+      "id": "rec_0128",
+      "timestamp": "2026-09-15 09:41:53",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 0.94,
+      "flow_rate_lpm": 0.95,
+      "source": "simulation",
+      "event_type": "Morning Drinking Water"
+    },
+    {
+      "id": "rec_0129",
+      "timestamp": "2026-09-15 12:53:31",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 4.09,
+      "flow_rate_lpm": 2.46,
+      "source": "simulation",
+      "event_type": "Breakfast & Cooking Refill"
+    },
+    {
+      "id": "rec_0130",
+      "timestamp": "2026-09-15 15:17:23",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 1.29,
+      "flow_rate_lpm": 1.92,
+      "source": "simulation",
+      "event_type": "Afternoon Water Refill"
+    },
+    {
+      "id": "rec_0131",
+      "timestamp": "2026-09-15 18:36:39",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 4.84,
+      "flow_rate_lpm": 1.99,
+      "source": "simulation",
+      "event_type": "Dinner Cooking & Prep"
+    },
+    {
+      "id": "rec_0132",
+      "timestamp": "2026-09-15 19:54:07",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 2.16,
+      "flow_rate_lpm": 3.26,
+      "source": "simulation",
+      "event_type": "Night Family Bottles Refill"
+    },
+    {
+      "id": "rec_0133",
+      "timestamp": "2026-09-16 06:19:01",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 0.68,
+      "flow_rate_lpm": 1.09,
+      "source": "simulation",
+      "event_type": "Morning Drinking Water"
+    },
+    {
+      "id": "rec_0134",
+      "timestamp": "2026-09-16 07:15:21",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 4.36,
+      "flow_rate_lpm": 1.9,
+      "source": "simulation",
+      "event_type": "Breakfast & Cooking Refill"
+    },
+    {
+      "id": "rec_0135",
+      "timestamp": "2026-09-16 09:08:17",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 1.95,
+      "flow_rate_lpm": 2.17,
+      "source": "simulation",
+      "event_type": "Afternoon Water Refill"
+    },
+    {
+      "id": "rec_0136",
+      "timestamp": "2026-09-16 11:23:26",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 3.76,
+      "flow_rate_lpm": 2.02,
+      "source": "simulation",
+      "event_type": "Dinner Cooking & Prep"
+    },
+    {
+      "id": "rec_0137",
+      "timestamp": "2026-09-17 07:14:28",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 1.15,
+      "flow_rate_lpm": 0.9,
+      "source": "simulation",
+      "event_type": "Morning Drinking Water"
+    },
+    {
+      "id": "rec_0138",
+      "timestamp": "2026-09-17 12:12:19",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 3.63,
+      "flow_rate_lpm": 2.39,
+      "source": "simulation",
+      "event_type": "Breakfast & Cooking Refill"
+    },
+    {
+      "id": "rec_0139",
+      "timestamp": "2026-09-17 13:58:24",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 1.79,
+      "flow_rate_lpm": 1.96,
+      "source": "simulation",
+      "event_type": "Afternoon Water Refill"
+    },
+    {
+      "id": "rec_0140",
+      "timestamp": "2026-09-17 16:23:14",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 5.81,
+      "flow_rate_lpm": 2.29,
+      "source": "simulation",
+      "event_type": "Dinner Cooking & Prep"
+    },
+    {
+      "id": "rec_0141",
+      "timestamp": "2026-09-18 07:34:40",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 1.21,
+      "flow_rate_lpm": 1.14,
+      "source": "simulation",
+      "event_type": "Morning Drinking Water"
+    },
+    {
+      "id": "rec_0142",
+      "timestamp": "2026-09-18 08:11:37",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 5.81,
+      "flow_rate_lpm": 2.35,
+      "source": "simulation",
+      "event_type": "Breakfast & Cooking Refill"
+    },
+    {
+      "id": "rec_0143",
+      "timestamp": "2026-09-18 15:45:44",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 1.78,
+      "flow_rate_lpm": 2.24,
+      "source": "simulation",
+      "event_type": "Afternoon Water Refill"
+    },
+    {
+      "id": "rec_0144",
+      "timestamp": "2026-09-18 22:16:16",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 4.69,
+      "flow_rate_lpm": 2.4,
+      "source": "simulation",
+      "event_type": "Dinner Cooking & Prep"
+    },
+    {
+      "id": "rec_0145",
+      "timestamp": "2026-09-19 09:46:20",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 1.4,
+      "flow_rate_lpm": 1.0,
+      "source": "simulation",
+      "event_type": "Morning Drinking Water"
+    },
+    {
+      "id": "rec_0146",
+      "timestamp": "2026-09-19 11:51:01",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 5.3,
+      "flow_rate_lpm": 1.87,
+      "source": "simulation",
+      "event_type": "Breakfast & Cooking Refill"
+    },
+    {
+      "id": "rec_0147",
+      "timestamp": "2026-09-19 16:12:20",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 1.61,
+      "flow_rate_lpm": 2.25,
+      "source": "simulation",
+      "event_type": "Afternoon Water Refill"
+    },
+    {
+      "id": "rec_0148",
+      "timestamp": "2026-09-19 19:23:41",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 4.55,
+      "flow_rate_lpm": 2.47,
+      "source": "simulation",
+      "event_type": "Dinner Cooking & Prep"
+    },
+    {
+      "id": "rec_0149",
+      "timestamp": "2026-09-19 21:13:01",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 2.84,
+      "flow_rate_lpm": 4.24,
+      "source": "simulation",
+      "event_type": "Night Family Bottles Refill"
+    },
+    {
+      "id": "rec_0150",
+      "timestamp": "2026-09-19 22:51:05",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 0.98,
+      "flow_rate_lpm": 1.15,
+      "source": "simulation",
+      "event_type": "Morning Drinking Water"
+    },
+    {
+      "id": "rec_0151",
+      "timestamp": "2026-09-20 07:30:05",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 1.54,
+      "flow_rate_lpm": 0.91,
+      "source": "simulation",
+      "event_type": "Morning Drinking Water"
+    },
+    {
+      "id": "rec_0152",
+      "timestamp": "2026-09-20 08:25:06",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 5.5,
+      "flow_rate_lpm": 2.45,
+      "source": "simulation",
+      "event_type": "Breakfast & Cooking Refill"
+    },
+    {
+      "id": "rec_0153",
+      "timestamp": "2026-09-20 09:51:47",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 1.67,
+      "flow_rate_lpm": 2.46,
+      "source": "simulation",
+      "event_type": "Afternoon Water Refill"
+    },
+    {
+      "id": "rec_0154",
+      "timestamp": "2026-09-20 10:16:43",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 4.43,
+      "flow_rate_lpm": 2.42,
+      "source": "simulation",
+      "event_type": "Dinner Cooking & Prep"
+    },
+    {
+      "id": "rec_0155",
+      "timestamp": "2026-09-20 13:24:33",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 3.85,
+      "flow_rate_lpm": 4.02,
+      "source": "simulation",
+      "event_type": "Night Family Bottles Refill"
+    },
+    {
+      "id": "rec_0156",
+      "timestamp": "2026-09-20 20:24:55",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 1.41,
+      "flow_rate_lpm": 0.97,
+      "source": "simulation",
+      "event_type": "Morning Drinking Water"
+    },
+    {
+      "id": "rec_0157",
+      "timestamp": "2026-09-21 14:12:54",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 1.06,
+      "flow_rate_lpm": 0.96,
+      "source": "simulation",
+      "event_type": "Morning Drinking Water"
+    },
+    {
+      "id": "rec_0158",
+      "timestamp": "2026-09-21 15:34:57",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 5.5,
+      "flow_rate_lpm": 1.84,
+      "source": "simulation",
+      "event_type": "Breakfast & Cooking Refill"
+    },
+    {
+      "id": "rec_0159",
+      "timestamp": "2026-09-21 18:16:03",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 2.71,
+      "flow_rate_lpm": 2.47,
+      "source": "simulation",
+      "event_type": "Afternoon Water Refill"
+    },
+    {
+      "id": "rec_0160",
+      "timestamp": "2026-09-21 21:08:31",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 4.59,
+      "flow_rate_lpm": 2.23,
+      "source": "simulation",
+      "event_type": "Dinner Cooking & Prep"
+    },
+    {
+      "id": "rec_0161",
+      "timestamp": "2026-09-22 06:05:55",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 1.03,
+      "flow_rate_lpm": 1.03,
+      "source": "simulation",
+      "event_type": "Morning Drinking Water"
+    },
+    {
+      "id": "rec_0162",
+      "timestamp": "2026-09-22 07:08:01",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 3.5,
+      "flow_rate_lpm": 2.05,
+      "source": "simulation",
+      "event_type": "Breakfast & Cooking Refill"
+    },
+    {
+      "id": "rec_0163",
+      "timestamp": "2026-09-22 10:53:34",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 1.78,
+      "flow_rate_lpm": 2.45,
+      "source": "simulation",
+      "event_type": "Afternoon Water Refill"
+    },
+    {
+      "id": "rec_0164",
+      "timestamp": "2026-09-22 12:12:28",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 4.29,
+      "flow_rate_lpm": 2.06,
+      "source": "simulation",
+      "event_type": "Dinner Cooking & Prep"
+    },
+    {
+      "id": "rec_0165",
+      "timestamp": "2026-09-22 16:35:56",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 3.14,
+      "flow_rate_lpm": 3.92,
+      "source": "simulation",
+      "event_type": "Night Family Bottles Refill"
+    },
+    {
+      "id": "rec_0166",
+      "timestamp": "2026-09-22 17:22:04",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 0.98,
+      "flow_rate_lpm": 0.85,
+      "source": "simulation",
+      "event_type": "Morning Drinking Water"
+    },
+    {
+      "id": "rec_0167",
+      "timestamp": "2026-09-23 09:33:14",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 1.69,
+      "flow_rate_lpm": 0.86,
+      "source": "simulation",
+      "event_type": "Morning Drinking Water"
+    },
+    {
+      "id": "rec_0168",
+      "timestamp": "2026-09-23 17:14:29",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 5.38,
+      "flow_rate_lpm": 2.07,
+      "source": "simulation",
+      "event_type": "Breakfast & Cooking Refill"
+    },
+    {
+      "id": "rec_0169",
+      "timestamp": "2026-09-23 18:38:45",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 1.62,
+      "flow_rate_lpm": 2.47,
+      "source": "simulation",
+      "event_type": "Afternoon Water Refill"
+    },
+    {
+      "id": "rec_0170",
+      "timestamp": "2026-09-23 19:42:23",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 6.9,
+      "flow_rate_lpm": 1.81,
+      "source": "simulation",
+      "event_type": "Dinner Cooking & Prep"
+    },
+    {
+      "id": "rec_0171",
+      "timestamp": "2026-09-24 07:17:35",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 1.24,
+      "flow_rate_lpm": 1.02,
+      "source": "simulation",
+      "event_type": "Morning Drinking Water"
+    },
+    {
+      "id": "rec_0172",
+      "timestamp": "2026-09-24 11:55:46",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 4.86,
+      "flow_rate_lpm": 2.33,
+      "source": "simulation",
+      "event_type": "Breakfast & Cooking Refill"
+    },
+    {
+      "id": "rec_0173",
+      "timestamp": "2026-09-24 13:43:18",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 1.88,
+      "flow_rate_lpm": 2.09,
+      "source": "simulation",
+      "event_type": "Afternoon Water Refill"
+    },
+    {
+      "id": "rec_0174",
+      "timestamp": "2026-09-24 17:34:57",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 5.57,
+      "flow_rate_lpm": 2.1,
+      "source": "simulation",
+      "event_type": "Dinner Cooking & Prep"
+    },
+    {
+      "id": "rec_0175",
+      "timestamp": "2026-09-25 08:25:50",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 1.66,
+      "flow_rate_lpm": 0.86,
+      "source": "simulation",
+      "event_type": "Morning Drinking Water"
+    },
+    {
+      "id": "rec_0176",
+      "timestamp": "2026-09-25 16:17:47",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 3.71,
+      "flow_rate_lpm": 2.23,
+      "source": "simulation",
+      "event_type": "Breakfast & Cooking Refill"
+    },
+    {
+      "id": "rec_0177",
+      "timestamp": "2026-09-25 17:41:23",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 1.91,
+      "flow_rate_lpm": 2.36,
+      "source": "simulation",
+      "event_type": "Afternoon Water Refill"
+    },
+    {
+      "id": "rec_0178",
+      "timestamp": "2026-09-25 18:29:16",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 6.63,
+      "flow_rate_lpm": 2.08,
+      "source": "simulation",
+      "event_type": "Dinner Cooking & Prep"
+    },
+    {
+      "id": "rec_0179",
+      "timestamp": "2026-09-25 22:21:27",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 3.38,
+      "flow_rate_lpm": 3.86,
+      "source": "simulation",
+      "event_type": "Night Family Bottles Refill"
+    },
+    {
+      "id": "rec_0180",
+      "timestamp": "2026-09-26 08:04:58",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 1.21,
+      "flow_rate_lpm": 0.91,
+      "source": "simulation",
+      "event_type": "Morning Drinking Water"
+    },
+    {
+      "id": "rec_0181",
+      "timestamp": "2026-09-26 10:24:28",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 6.57,
+      "flow_rate_lpm": 2.43,
+      "source": "simulation",
+      "event_type": "Breakfast & Cooking Refill"
+    },
+    {
+      "id": "rec_0182",
+      "timestamp": "2026-09-26 15:50:08",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 2.62,
+      "flow_rate_lpm": 2.08,
+      "source": "simulation",
+      "event_type": "Afternoon Water Refill"
+    },
+    {
+      "id": "rec_0183",
+      "timestamp": "2026-09-26 16:23:06",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 5.98,
+      "flow_rate_lpm": 2.46,
+      "source": "simulation",
+      "event_type": "Dinner Cooking & Prep"
+    },
+    {
+      "id": "rec_0184",
+      "timestamp": "2026-09-26 17:37:24",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 5.29,
+      "flow_rate_lpm": 4.12,
+      "source": "simulation",
+      "event_type": "Night Family Bottles Refill"
+    },
+    {
+      "id": "rec_0185",
+      "timestamp": "2026-09-27 12:07:12",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 0.94,
+      "flow_rate_lpm": 0.9,
+      "source": "simulation",
+      "event_type": "Morning Drinking Water"
+    },
+    {
+      "id": "rec_0186",
+      "timestamp": "2026-09-27 14:24:27",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 5.64,
+      "flow_rate_lpm": 2.0,
+      "source": "simulation",
+      "event_type": "Breakfast & Cooking Refill"
+    },
+    {
+      "id": "rec_0187",
+      "timestamp": "2026-09-27 16:17:56",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 2.46,
+      "flow_rate_lpm": 2.46,
+      "source": "simulation",
+      "event_type": "Afternoon Water Refill"
+    },
+    {
+      "id": "rec_0188",
+      "timestamp": "2026-09-27 20:52:17",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 5.82,
+      "flow_rate_lpm": 1.97,
+      "source": "simulation",
+      "event_type": "Dinner Cooking & Prep"
+    },
+    {
+      "id": "rec_0189",
+      "timestamp": "2026-09-27 22:42:11",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 3.51,
+      "flow_rate_lpm": 3.47,
+      "source": "simulation",
+      "event_type": "Night Family Bottles Refill"
+    },
+    {
+      "id": "rec_0190",
+      "timestamp": "2026-09-28 07:00:44",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 1.39,
+      "flow_rate_lpm": 0.97,
+      "source": "simulation",
+      "event_type": "Morning Drinking Water"
+    },
+    {
+      "id": "rec_0191",
+      "timestamp": "2026-09-28 08:25:34",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 6.32,
+      "flow_rate_lpm": 2.22,
+      "source": "simulation",
+      "event_type": "Breakfast & Cooking Refill"
+    },
+    {
+      "id": "rec_0192",
+      "timestamp": "2026-09-28 09:14:06",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 3.26,
+      "flow_rate_lpm": 2.01,
+      "source": "simulation",
+      "event_type": "Afternoon Water Refill"
+    },
+    {
+      "id": "rec_0193",
+      "timestamp": "2026-09-28 13:56:29",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 7.61,
+      "flow_rate_lpm": 2.49,
+      "source": "simulation",
+      "event_type": "Dinner Cooking & Prep"
+    },
+    {
+      "id": "rec_0194",
+      "timestamp": "2026-09-28 14:03:24",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 4.42,
+      "flow_rate_lpm": 3.27,
+      "source": "simulation",
+      "event_type": "Night Family Bottles Refill"
+    },
+    {
+      "id": "rec_0195",
+      "timestamp": "2026-09-28 20:27:16",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 1.54,
+      "flow_rate_lpm": 1.0,
+      "source": "simulation",
+      "event_type": "Morning Drinking Water"
+    },
+    {
+      "id": "rec_0196",
+      "timestamp": "2026-09-29 07:43:52",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 1.31,
+      "flow_rate_lpm": 0.83,
+      "source": "simulation",
+      "event_type": "Morning Drinking Water"
+    },
+    {
+      "id": "rec_0197",
+      "timestamp": "2026-09-29 10:28:25",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 4.5,
+      "flow_rate_lpm": 2.26,
+      "source": "simulation",
+      "event_type": "Breakfast & Cooking Refill"
+    },
+    {
+      "id": "rec_0198",
+      "timestamp": "2026-09-29 11:24:54",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 2.85,
+      "flow_rate_lpm": 1.86,
+      "source": "simulation",
+      "event_type": "Afternoon Water Refill"
+    },
+    {
+      "id": "rec_0199",
+      "timestamp": "2026-09-29 14:02:31",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 7.63,
+      "flow_rate_lpm": 2.11,
+      "source": "simulation",
+      "event_type": "Dinner Cooking & Prep"
+    },
+    {
+      "id": "rec_0200",
+      "timestamp": "2026-09-30 07:04:36",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 1.18,
+      "flow_rate_lpm": 0.96,
+      "source": "simulation",
+      "event_type": "Morning Drinking Water"
+    },
+    {
+      "id": "rec_0201",
+      "timestamp": "2026-09-30 15:17:08",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 5.46,
+      "flow_rate_lpm": 2.38,
+      "source": "simulation",
+      "event_type": "Breakfast & Cooking Refill"
+    },
+    {
+      "id": "rec_0202",
+      "timestamp": "2026-09-30 20:19:13",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 2.61,
+      "flow_rate_lpm": 2.4,
+      "source": "simulation",
+      "event_type": "Afternoon Water Refill"
+    },
+    {
+      "id": "rec_0203",
+      "timestamp": "2026-09-30 22:09:31",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 7.56,
+      "flow_rate_lpm": 2.42,
+      "source": "simulation",
+      "event_type": "Dinner Cooking & Prep"
+    },
+    {
+      "id": "rec_0204",
+      "timestamp": "2026-10-01 06:57:39",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 1.37,
+      "flow_rate_lpm": 1.16,
+      "source": "simulation",
+      "event_type": "Morning Drinking Water"
+    },
+    {
+      "id": "rec_0205",
+      "timestamp": "2026-10-01 14:01:23",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 4.58,
+      "flow_rate_lpm": 2.44,
+      "source": "simulation",
+      "event_type": "Breakfast & Cooking Refill"
+    },
+    {
+      "id": "rec_0206",
+      "timestamp": "2026-10-01 18:37:34",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 2.74,
+      "flow_rate_lpm": 2.03,
+      "source": "simulation",
+      "event_type": "Afternoon Water Refill"
+    },
+    {
+      "id": "rec_0207",
+      "timestamp": "2026-10-01 19:48:52",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 5.93,
+      "flow_rate_lpm": 2.26,
+      "source": "simulation",
+      "event_type": "Dinner Cooking & Prep"
+    },
+    {
+      "id": "rec_0208",
+      "timestamp": "2026-10-02 08:15:01",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 0.96,
+      "flow_rate_lpm": 1.16,
+      "source": "simulation",
+      "event_type": "Morning Drinking Water"
+    },
+    {
+      "id": "rec_0209",
+      "timestamp": "2026-10-02 11:23:00",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 4.5,
+      "flow_rate_lpm": 1.88,
+      "source": "simulation",
+      "event_type": "Breakfast & Cooking Refill"
+    },
+    {
+      "id": "rec_0210",
+      "timestamp": "2026-10-02 12:37:25",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 2.08,
+      "flow_rate_lpm": 2.45,
+      "source": "simulation",
+      "event_type": "Afternoon Water Refill"
+    },
+    {
+      "id": "rec_0211",
+      "timestamp": "2026-10-02 16:06:53",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 5.09,
+      "flow_rate_lpm": 2.37,
+      "source": "simulation",
+      "event_type": "Dinner Cooking & Prep"
+    },
+    {
+      "id": "rec_0212",
+      "timestamp": "2026-10-02 18:20:55",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 2.11,
+      "flow_rate_lpm": 4.28,
+      "source": "simulation",
+      "event_type": "Night Family Bottles Refill"
+    },
+    {
+      "id": "rec_0213",
+      "timestamp": "2026-10-03 06:21:15",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 1.07,
+      "flow_rate_lpm": 0.95,
+      "source": "simulation",
+      "event_type": "Morning Drinking Water"
+    },
+    {
+      "id": "rec_0214",
+      "timestamp": "2026-10-03 09:10:32",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 2.52,
+      "flow_rate_lpm": 1.95,
+      "source": "simulation",
+      "event_type": "Breakfast & Cooking Refill"
+    },
+    {
+      "id": "rec_0215",
+      "timestamp": "2026-10-03 17:16:25",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 2.0,
+      "flow_rate_lpm": 1.91,
+      "source": "simulation",
+      "event_type": "Afternoon Water Refill"
+    },
+    {
+      "id": "rec_0216",
+      "timestamp": "2026-10-03 18:07:53",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 4.44,
+      "flow_rate_lpm": 1.98,
+      "source": "simulation",
+      "event_type": "Dinner Cooking & Prep"
+    },
+    {
+      "id": "rec_0217",
+      "timestamp": "2026-10-04 08:33:46",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 1.3,
+      "flow_rate_lpm": 0.97,
+      "source": "simulation",
+      "event_type": "Morning Drinking Water"
+    },
+    {
+      "id": "rec_0218",
+      "timestamp": "2026-10-04 18:35:17",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 4.35,
+      "flow_rate_lpm": 2.11,
+      "source": "simulation",
+      "event_type": "Breakfast & Cooking Refill"
+    },
+    {
+      "id": "rec_0219",
+      "timestamp": "2026-10-04 21:42:39",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 2.02,
+      "flow_rate_lpm": 2.18,
+      "source": "simulation",
+      "event_type": "Afternoon Water Refill"
+    },
+    {
+      "id": "rec_0220",
+      "timestamp": "2026-10-04 22:04:10",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 3.62,
+      "flow_rate_lpm": 2.37,
+      "source": "simulation",
+      "event_type": "Dinner Cooking & Prep"
+    },
+    {
+      "id": "rec_0221",
+      "timestamp": "2026-10-05 10:52:19",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 1.63,
+      "flow_rate_lpm": 1.16,
+      "source": "simulation",
+      "event_type": "Morning Drinking Water"
+    },
+    {
+      "id": "rec_0222",
+      "timestamp": "2026-10-05 11:16:45",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 5.84,
+      "flow_rate_lpm": 1.85,
+      "source": "simulation",
+      "event_type": "Breakfast & Cooking Refill"
+    },
+    {
+      "id": "rec_0223",
+      "timestamp": "2026-10-05 12:18:30",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 1.95,
+      "flow_rate_lpm": 2.06,
+      "source": "simulation",
+      "event_type": "Afternoon Water Refill"
+    },
+    {
+      "id": "rec_0224",
+      "timestamp": "2026-10-05 13:00:51",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 6.18,
+      "flow_rate_lpm": 2.06,
+      "source": "simulation",
+      "event_type": "Dinner Cooking & Prep"
+    },
+    {
+      "id": "rec_0225",
+      "timestamp": "2026-10-05 16:30:21",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 2.97,
+      "flow_rate_lpm": 4.09,
+      "source": "simulation",
+      "event_type": "Night Family Bottles Refill"
+    },
+    {
+      "id": "rec_0226",
+      "timestamp": "2026-10-05 21:41:01",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 1.13,
+      "flow_rate_lpm": 1.15,
+      "source": "simulation",
+      "event_type": "Morning Drinking Water"
+    },
+    {
+      "id": "rec_0227",
+      "timestamp": "2026-10-06 11:52:46",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 1.39,
+      "flow_rate_lpm": 1.09,
+      "source": "simulation",
+      "event_type": "Morning Drinking Water"
+    },
+    {
+      "id": "rec_0228",
+      "timestamp": "2026-10-06 12:19:42",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 5.29,
+      "flow_rate_lpm": 2.18,
+      "source": "simulation",
+      "event_type": "Breakfast & Cooking Refill"
+    },
+    {
+      "id": "rec_0229",
+      "timestamp": "2026-10-06 13:58:54",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 2.75,
+      "flow_rate_lpm": 2.1,
+      "source": "simulation",
+      "event_type": "Afternoon Water Refill"
+    },
+    {
+      "id": "rec_0230",
+      "timestamp": "2026-10-06 18:47:09",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 6.89,
+      "flow_rate_lpm": 2.45,
+      "source": "simulation",
+      "event_type": "Dinner Cooking & Prep"
+    },
+    {
+      "id": "rec_0231",
+      "timestamp": "2026-10-06 19:49:44",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 4.1,
+      "flow_rate_lpm": 3.24,
+      "source": "simulation",
+      "event_type": "Night Family Bottles Refill"
+    },
+    {
+      "id": "rec_0232",
+      "timestamp": "2026-10-07 08:58:09",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 1.06,
+      "flow_rate_lpm": 0.85,
+      "source": "simulation",
+      "event_type": "Morning Drinking Water"
+    },
+    {
+      "id": "rec_0233",
+      "timestamp": "2026-10-07 09:56:29",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 5.95,
+      "flow_rate_lpm": 2.09,
+      "source": "simulation",
+      "event_type": "Breakfast & Cooking Refill"
+    },
+    {
+      "id": "rec_0234",
+      "timestamp": "2026-10-07 12:06:07",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 2.59,
+      "flow_rate_lpm": 2.46,
+      "source": "simulation",
+      "event_type": "Afternoon Water Refill"
+    },
+    {
+      "id": "rec_0235",
+      "timestamp": "2026-10-07 22:45:49",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 4.5,
+      "flow_rate_lpm": 2.17,
+      "source": "simulation",
+      "event_type": "Dinner Cooking & Prep"
+    },
+    {
+      "id": "rec_0236",
+      "timestamp": "2026-10-08 11:24:34",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 1.15,
+      "flow_rate_lpm": 0.86,
+      "source": "simulation",
+      "event_type": "Morning Drinking Water"
+    },
+    {
+      "id": "rec_0237",
+      "timestamp": "2026-10-08 12:15:04",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 4.89,
+      "flow_rate_lpm": 1.97,
+      "source": "simulation",
+      "event_type": "Breakfast & Cooking Refill"
+    },
+    {
+      "id": "rec_0238",
+      "timestamp": "2026-10-08 13:22:32",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 1.82,
+      "flow_rate_lpm": 2.22,
+      "source": "simulation",
+      "event_type": "Afternoon Water Refill"
+    },
+    {
+      "id": "rec_0239",
+      "timestamp": "2026-10-08 17:47:58",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 3.88,
+      "flow_rate_lpm": 2.47,
+      "source": "simulation",
+      "event_type": "Dinner Cooking & Prep"
+    },
+    {
+      "id": "rec_0240",
+      "timestamp": "2026-10-08 20:39:04",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 4.36,
+      "flow_rate_lpm": 4.38,
+      "source": "simulation",
+      "event_type": "Night Family Bottles Refill"
+    },
+    {
+      "id": "rec_0241",
+      "timestamp": "2026-10-09 07:46:10",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 0.9,
+      "flow_rate_lpm": 1.0,
+      "source": "simulation",
+      "event_type": "Morning Drinking Water"
+    },
+    {
+      "id": "rec_0242",
+      "timestamp": "2026-10-09 10:39:32",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 5.51,
+      "flow_rate_lpm": 2.47,
+      "source": "simulation",
+      "event_type": "Breakfast & Cooking Refill"
+    },
+    {
+      "id": "rec_0243",
+      "timestamp": "2026-10-09 18:11:55",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 2.3,
+      "flow_rate_lpm": 2.14,
+      "source": "simulation",
+      "event_type": "Afternoon Water Refill"
+    },
+    {
+      "id": "rec_0244",
+      "timestamp": "2026-10-09 19:35:46",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 6.05,
+      "flow_rate_lpm": 1.83,
+      "source": "simulation",
+      "event_type": "Dinner Cooking & Prep"
+    },
+    {
+      "id": "rec_0245",
+      "timestamp": "2026-10-10 06:41:20",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 1.21,
+      "flow_rate_lpm": 0.83,
+      "source": "simulation",
+      "event_type": "Morning Drinking Water"
+    },
+    {
+      "id": "rec_0246",
+      "timestamp": "2026-10-10 09:47:12",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 4.46,
+      "flow_rate_lpm": 2.29,
+      "source": "simulation",
+      "event_type": "Breakfast & Cooking Refill"
+    },
+    {
+      "id": "rec_0247",
+      "timestamp": "2026-10-10 11:18:18",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 1.81,
+      "flow_rate_lpm": 2.01,
+      "source": "simulation",
+      "event_type": "Afternoon Water Refill"
+    },
+    {
+      "id": "rec_0248",
+      "timestamp": "2026-10-10 16:10:25",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 4.57,
+      "flow_rate_lpm": 2.35,
+      "source": "simulation",
+      "event_type": "Dinner Cooking & Prep"
+    },
+    {
+      "id": "rec_0249",
+      "timestamp": "2026-10-10 22:50:55",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 2.63,
+      "flow_rate_lpm": 4.07,
+      "source": "simulation",
+      "event_type": "Night Family Bottles Refill"
+    },
+    {
+      "id": "rec_0250",
+      "timestamp": "2026-10-11 09:23:36",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 1.35,
+      "flow_rate_lpm": 0.98,
+      "source": "simulation",
+      "event_type": "Morning Drinking Water"
+    },
+    {
+      "id": "rec_0251",
+      "timestamp": "2026-10-11 11:47:07",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 6.87,
+      "flow_rate_lpm": 2.39,
+      "source": "simulation",
+      "event_type": "Breakfast & Cooking Refill"
+    },
+    {
+      "id": "rec_0252",
+      "timestamp": "2026-10-11 17:07:32",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 3.27,
+      "flow_rate_lpm": 2.46,
+      "source": "simulation",
+      "event_type": "Afternoon Water Refill"
+    },
+    {
+      "id": "rec_0253",
+      "timestamp": "2026-10-11 18:15:08",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 7.68,
+      "flow_rate_lpm": 2.47,
+      "source": "simulation",
+      "event_type": "Dinner Cooking & Prep"
+    },
+    {
+      "id": "rec_0254",
+      "timestamp": "2026-10-11 20:09:06",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 4.18,
+      "flow_rate_lpm": 3.27,
+      "source": "simulation",
+      "event_type": "Night Family Bottles Refill"
+    },
+    {
+      "id": "rec_0255",
+      "timestamp": "2026-10-11 21:24:16",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 1.57,
+      "flow_rate_lpm": 1.06,
+      "source": "simulation",
+      "event_type": "Morning Drinking Water"
+    },
+    {
+      "id": "rec_0256",
+      "timestamp": "2026-10-12 06:17:11",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 1.16,
+      "flow_rate_lpm": 0.89,
+      "source": "simulation",
+      "event_type": "Morning Drinking Water"
+    },
+    {
+      "id": "rec_0257",
+      "timestamp": "2026-10-12 12:35:19",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 4.97,
+      "flow_rate_lpm": 2.06,
+      "source": "simulation",
+      "event_type": "Breakfast & Cooking Refill"
+    },
+    {
+      "id": "rec_0258",
+      "timestamp": "2026-10-12 15:45:50",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 2.38,
+      "flow_rate_lpm": 2.45,
+      "source": "simulation",
+      "event_type": "Afternoon Water Refill"
+    },
+    {
+      "id": "rec_0259",
+      "timestamp": "2026-10-12 16:42:03",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 4.99,
+      "flow_rate_lpm": 1.92,
+      "source": "simulation",
+      "event_type": "Dinner Cooking & Prep"
+    },
+    {
+      "id": "rec_0260",
+      "timestamp": "2026-10-12 20:35:00",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 4.73,
+      "flow_rate_lpm": 3.73,
+      "source": "simulation",
+      "event_type": "Night Family Bottles Refill"
+    },
+    {
+      "id": "rec_0261",
+      "timestamp": "2026-10-13 08:46:17",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 1.1,
+      "flow_rate_lpm": 0.81,
+      "source": "simulation",
+      "event_type": "Morning Drinking Water"
+    },
+    {
+      "id": "rec_0262",
+      "timestamp": "2026-10-13 15:37:06",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 4.47,
+      "flow_rate_lpm": 2.47,
+      "source": "simulation",
+      "event_type": "Breakfast & Cooking Refill"
+    },
+    {
+      "id": "rec_0263",
+      "timestamp": "2026-10-13 21:44:37",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 1.6,
+      "flow_rate_lpm": 1.9,
+      "source": "simulation",
+      "event_type": "Afternoon Water Refill"
+    },
+    {
+      "id": "rec_0264",
+      "timestamp": "2026-10-13 22:27:34",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 6.81,
+      "flow_rate_lpm": 2.15,
+      "source": "simulation",
+      "event_type": "Dinner Cooking & Prep"
+    },
+    {
+      "id": "rec_0265",
+      "timestamp": "2026-10-14 06:02:18",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 1.39,
+      "flow_rate_lpm": 0.84,
+      "source": "simulation",
+      "event_type": "Morning Drinking Water"
+    },
+    {
+      "id": "rec_0266",
+      "timestamp": "2026-10-14 07:30:57",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 5.87,
+      "flow_rate_lpm": 2.3,
+      "source": "simulation",
+      "event_type": "Breakfast & Cooking Refill"
+    },
+    {
+      "id": "rec_0267",
+      "timestamp": "2026-10-14 12:15:21",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 2.05,
+      "flow_rate_lpm": 2.01,
+      "source": "simulation",
+      "event_type": "Afternoon Water Refill"
+    },
+    {
+      "id": "rec_0268",
+      "timestamp": "2026-10-14 18:23:12",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 7.37,
+      "flow_rate_lpm": 2.23,
+      "source": "simulation",
+      "event_type": "Dinner Cooking & Prep"
+    },
+    {
+      "id": "rec_0269",
+      "timestamp": "2026-10-14 19:27:52",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 4.95,
+      "flow_rate_lpm": 4.43,
+      "source": "simulation",
+      "event_type": "Night Family Bottles Refill"
+    },
+    {
+      "id": "rec_0270",
+      "timestamp": "2026-10-14 22:25:21",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 2.01,
+      "flow_rate_lpm": 1.16,
+      "source": "simulation",
+      "event_type": "Morning Drinking Water"
+    },
+    {
+      "id": "rec_0271",
+      "timestamp": "2026-10-15 06:51:07",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 1.75,
+      "flow_rate_lpm": 1.16,
+      "source": "simulation",
+      "event_type": "Morning Drinking Water"
+    },
+    {
+      "id": "rec_0272",
+      "timestamp": "2026-10-15 14:57:34",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 6.31,
+      "flow_rate_lpm": 2.49,
+      "source": "simulation",
+      "event_type": "Breakfast & Cooking Refill"
+    },
+    {
+      "id": "rec_0273",
+      "timestamp": "2026-10-15 17:57:34",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 3.2,
+      "flow_rate_lpm": 2.11,
+      "source": "simulation",
+      "event_type": "Afternoon Water Refill"
+    },
+    {
+      "id": "rec_0274",
+      "timestamp": "2026-10-15 21:18:16",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 5.55,
+      "flow_rate_lpm": 1.84,
+      "source": "simulation",
+      "event_type": "Dinner Cooking & Prep"
+    },
+    {
+      "id": "rec_0275",
+      "timestamp": "2026-10-15 22:14:58",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 4.01,
+      "flow_rate_lpm": 3.29,
+      "source": "simulation",
+      "event_type": "Night Family Bottles Refill"
+    },
+    {
+      "id": "rec_0276",
+      "timestamp": "2026-10-16 06:50:00",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 0.94,
+      "flow_rate_lpm": 1.13,
+      "source": "simulation",
+      "event_type": "Morning Drinking Water"
+    },
+    {
+      "id": "rec_0277",
+      "timestamp": "2026-10-16 07:50:15",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 3.93,
+      "flow_rate_lpm": 2.42,
+      "source": "simulation",
+      "event_type": "Breakfast & Cooking Refill"
+    },
+    {
+      "id": "rec_0278",
+      "timestamp": "2026-10-16 10:22:47",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 1.34,
+      "flow_rate_lpm": 2.26,
+      "source": "simulation",
+      "event_type": "Afternoon Water Refill"
+    },
+    {
+      "id": "rec_0279",
+      "timestamp": "2026-10-16 16:13:34",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 3.34,
+      "flow_rate_lpm": 1.87,
+      "source": "simulation",
+      "event_type": "Dinner Cooking & Prep"
+    },
+    {
+      "id": "rec_0280",
+      "timestamp": "2026-10-17 12:13:41",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 0.98,
+      "flow_rate_lpm": 0.91,
+      "source": "simulation",
+      "event_type": "Morning Drinking Water"
+    },
+    {
+      "id": "rec_0281",
+      "timestamp": "2026-10-17 13:34:40",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 4.52,
+      "flow_rate_lpm": 2.19,
+      "source": "simulation",
+      "event_type": "Breakfast & Cooking Refill"
+    },
+    {
+      "id": "rec_0282",
+      "timestamp": "2026-10-17 14:13:01",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 2.71,
+      "flow_rate_lpm": 2.4,
+      "source": "simulation",
+      "event_type": "Afternoon Water Refill"
+    },
+    {
+      "id": "rec_0283",
+      "timestamp": "2026-10-17 17:01:34",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 6.1,
+      "flow_rate_lpm": 2.22,
+      "source": "simulation",
+      "event_type": "Dinner Cooking & Prep"
+    },
+    {
+      "id": "rec_0284",
+      "timestamp": "2026-10-17 22:37:11",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 4.16,
+      "flow_rate_lpm": 3.05,
+      "source": "simulation",
+      "event_type": "Night Family Bottles Refill"
+    },
+    {
+      "id": "rec_0285",
+      "timestamp": "2026-10-18 12:31:44",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 0.76,
+      "flow_rate_lpm": 0.84,
+      "source": "simulation",
+      "event_type": "Morning Drinking Water"
+    },
+    {
+      "id": "rec_0286",
+      "timestamp": "2026-10-18 13:26:50",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 4.59,
+      "flow_rate_lpm": 2.4,
+      "source": "simulation",
+      "event_type": "Breakfast & Cooking Refill"
+    },
+    {
+      "id": "rec_0287",
+      "timestamp": "2026-10-18 15:12:30",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 2.02,
+      "flow_rate_lpm": 2.13,
+      "source": "simulation",
+      "event_type": "Afternoon Water Refill"
+    },
+    {
+      "id": "rec_0288",
+      "timestamp": "2026-10-18 19:41:09",
+      "device_id": "esp32_sim_01",
+      "litres_flowed": 4.84,
+      "flow_rate_lpm": 1.81,
+      "source": "simulation",
+      "event_type": "Dinner Cooking & Prep"
+    },
+    {
+      "id": "evt_143c385f",
+      "timestamp": "2026-10-29 22:13:03",
+      "device_id": "esp32_01",
+      "litres_flowed": 10.0,
+      "flow_rate_lpm": 2.4,
+      "source": "simulation",
+      "event_type": "Test Refill"
+    },
+    {
+      "id": "iot_240e1ff5",
+      "timestamp": "2026-10-29 22:13:03",
+      "device_id": "esp32_01",
+      "litres_flowed": 1.2,
+      "flow_rate_lpm": 2.5,
+      "source": "esp32",
+      "event_type": "Hardware Telemetry"
+    },
+    {
+      "id": "evt_4a7eb759",
+      "timestamp": "2026-10-29 22:13:43",
+      "device_id": "esp32_01",
+      "litres_flowed": 1.0,
+      "flow_rate_lpm": 2.2,
+      "source": "simulation",
+      "event_type": "Drinking Glass"
+    },
+    {
+      "id": "iot_ea3bf013",
+      "timestamp": "2026-10-29 22:15:35",
+      "device_id": "esp32_atomquest_01",
+      "litres_flowed": 2.5,
+      "flow_rate_lpm": 2.8,
+      "source": "esp32",
+      "event_type": "Hardware Telemetry"
+    }
+  ]
+}
